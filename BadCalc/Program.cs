@@ -1,0 +1,221 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Text.RegularExpressions;
+
+namespace BadCalc
+{
+
+    internal class Power
+    {
+
+        public double Do(float a, float b)
+        {
+            return Math.Pow(a, b);
+        }
+    }
+    internal class Divide
+    {
+
+        public float Do(float a, float b)
+        {
+            return a / b;
+        }
+    }
+    internal class Multiply
+    {
+
+        public float Do(float a, float b)
+        {
+            return a * b;
+        }
+    }
+
+    internal class Add
+    {
+
+        public float Do(float a, float b)
+        {
+            return a + b;
+        }
+    }
+
+    internal class Minus
+    {
+
+        public float Do(float a, float b)
+        {
+            return a - b;
+        }
+    }
+    internal class UI
+    {
+        public UI()
+        {
+            Run();
+        }
+
+        public void Run()
+        {
+            Add add = new Add();
+            Minus minus = new Minus();
+            Multiply multiply = new Multiply();
+            Divide divide = new Divide();
+            Power power = new Power();
+            Console.WriteLine("Enter equations into the calcualtor by typing then pressing enter");
+            Console.WriteLine("Does not follow order of operations");
+            Console.WriteLine("valid symbols are plus(+), minus(-), multiple(*), divide(/) and exponents($)");
+            Console.WriteLine("Enter q/Q to quit the program");
+            string[] checkminus = { "+", "*", "/", "$" };
+            string[] checkplus = { "+", "*", "/", "$" };
+            for (int j = 10; j > 1; j++)
+            {
+
+                Console.Write("> ");
+                string input = Console.ReadLine();
+
+
+
+                if (input.ToLower().Contains("q"))
+                {
+                    Environment.Exit(0);
+                }
+
+
+                List<string> splitInput = (Regex.Split(input, @"\s*([-+/*$])\s*")).ToList();
+                splitInput.RemoveAll(inputindex => string.IsNullOrWhiteSpace(inputindex));
+
+
+
+
+
+                for (int i = 1; i < splitInput.Count; i++)
+                {
+                    if (checkminus.Contains(splitInput[i - 1]) && splitInput[i] == "-")
+                    {
+                        int.TryParse(splitInput[i + 1], out int n);
+                        splitInput[i + 1] = (n * -1).ToString();
+                        splitInput.RemoveAt(i);
+                    }
+
+                    if (checkplus.Contains(splitInput[i - 1]) && splitInput[i] == "+")
+                    {
+                        int.TryParse(splitInput[i + 1], out int n);
+                        splitInput[i + 1] = (n * 1).ToString();
+                        splitInput.RemoveAt(i);
+                    }
+
+
+
+                }
+
+                foreach (string str in splitInput)
+                {
+                    Console.WriteLine("Index fregjorew {0}", str);
+                }
+
+
+
+                try
+                {
+
+                    if (splitInput.Count != 0)
+                    {
+
+
+                        if (splitInput[0] == "-")
+                        {
+                            int.TryParse(splitInput[1], out int n);
+                            splitInput[1] = (n * -1).ToString();
+                            splitInput.RemoveAt(0);
+
+                        }
+                        int.Parse(splitInput[0]);
+                    }
+
+                    for (int i = 0; i < splitInput.Count; i++)
+                    {
+                        switch (splitInput[i])
+                        {
+                            case "+":
+                                splitInput[i] = (add.Do(float.Parse(splitInput[i - 1]), float.Parse(splitInput[i + 1]))).ToString();
+                                splitInput.RemoveAt(i - 1);
+                                splitInput.RemoveAt(i);
+                                if (splitInput.Count != 1)
+                                {
+                                    i = 0;
+                                }
+
+                                break;
+                            case "-":
+                                splitInput[i] = (minus.Do(float.Parse(splitInput[i - 1]), float.Parse(splitInput[i + 1]))).ToString();
+                                splitInput.RemoveAt(i - 1);
+                                splitInput.RemoveAt(i);
+                                if (splitInput.Count != 1)
+                                {
+                                    i = 0;
+                                }
+
+                                break;
+                            case "*":
+                                splitInput[i] = (multiply.Do(float.Parse(splitInput[i - 1]), float.Parse(splitInput[i + 1]))).ToString();
+                                splitInput.RemoveAt(i - 1);
+                                splitInput.RemoveAt(i);
+                                if (splitInput.Count != 1)
+                                {
+                                    i = 0;
+                                }
+
+                                break;
+                            case "/":
+                                splitInput[i] = (divide.Do(float.Parse(splitInput[i - 1]), float.Parse(splitInput[i + 1]))).ToString();
+                                splitInput.RemoveAt(i - 1);
+                                splitInput.RemoveAt(i);
+                                if (splitInput.Count != 1)
+                                {
+                                    i = 0;
+                                }
+
+                                break;
+                            case "$":
+                                splitInput[i] = (power.Do(float.Parse(splitInput[i - 1]), float.Parse(splitInput[i + 1]))).ToString();
+                                splitInput.RemoveAt(i - 1);
+                                splitInput.RemoveAt(i);
+                                if (splitInput.Count != 1)
+                                {
+                                    i = 0;
+                                }
+
+                                break;
+
+                        }
+                    }
+
+                }
+
+                catch (Exception e)
+                {
+                    Console.WriteLine("Invalid input");
+                    splitInput[0] = " ";
+                }
+                if (splitInput.Count != 0)
+                {
+                    Console.WriteLine("> {0}", splitInput[0]);
+                }
+
+
+            }
+        }
+    }
+    public class program
+    {
+        public static void Main(String[] args)
+        {
+            UI ui = new UI();
+
+
+        }
+    }
+}
