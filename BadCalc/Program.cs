@@ -52,31 +52,43 @@ namespace BadCalc
     }
     internal class UI
     {
+
+        Add add;
+        Minus minus;
+        Multiply multiply;
+        Divide divide;
+        Power power;
+
         public UI()
         {
-            Run();
+            add = new Add();
+            minus = new Minus();
+            multiply = new Multiply();
+            divide = new Divide();
+            power = new Power();
         }
+
+
+
+      
+
 
         public void Run()
         {
-            Add add = new Add();
-            Minus minus = new Minus();
-            Multiply multiply = new Multiply();
-            Divide divide = new Divide();
-            Power power = new Power();
+           
             Console.WriteLine("Enter equations into the calcualtor by typing then pressing enter");
             Console.WriteLine("Does not follow order of operations");
             Console.WriteLine("valid symbols are plus(+), minus(-), multiple(*), divide(/) and exponents($)");
             Console.WriteLine("Enter q/Q to quit the program");
-            string[] checkminus = { "+", "*", "/", "$" };
-            string[] checkplus = { "+", "*", "/", "$" };
+            string[] check = { "+","-", "*", "/", "$" };
+            
             for (int j = 10; j > 1; j++)
             {
 
                 Console.Write("> ");
                 string input = Console.ReadLine();
 
-
+                input = input.Replace('=',' ');
 
                 if (input.ToLower().Contains("q"))
                 {
@@ -88,19 +100,16 @@ namespace BadCalc
                 splitInput.RemoveAll(inputindex => string.IsNullOrWhiteSpace(inputindex));
 
 
-
-
-
                 for (int i = 1; i < splitInput.Count; i++)
                 {
-                    if (checkminus.Contains(splitInput[i - 1]) && splitInput[i] == "-")
+                    if (check.Contains(splitInput[i - 1]) && splitInput[i] == "-")
                     {
                         int.TryParse(splitInput[i + 1], out int n);
                         splitInput[i + 1] = (n * -1).ToString();
                         splitInput.RemoveAt(i);
                     }
 
-                    if (checkplus.Contains(splitInput[i - 1]) && splitInput[i] == "+")
+                    if (check.Contains(splitInput[i - 1]) && splitInput[i] == "+")
                     {
                         int.TryParse(splitInput[i + 1], out int n);
                         splitInput[i + 1] = (n * 1).ToString();
@@ -111,13 +120,7 @@ namespace BadCalc
 
                 }
 
-                foreach (string str in splitInput)
-                {
-                    Console.WriteLine("Index fregjorew {0}", str);
-                }
-
-
-
+              
                 try
                 {
 
@@ -132,6 +135,18 @@ namespace BadCalc
                             splitInput.RemoveAt(0);
 
                         }
+                        if (splitInput[0] == "+")
+                        {
+                            int.TryParse(splitInput[1], out int n);
+                            splitInput[1] = (n * 1).ToString();
+                            splitInput.RemoveAt(0);
+                            int.Parse(splitInput[0]);
+                        }
+                        if (splitInput[splitInput.Count - 1] == "=")
+                        {
+                            splitInput.RemoveAt(splitInput.Count - 1);
+                        }
+                       
                         int.Parse(splitInput[0]);
                     }
 
@@ -214,7 +229,7 @@ namespace BadCalc
         public static void Main(String[] args)
         {
             UI ui = new UI();
-
+            ui.Run();
 
         }
     }

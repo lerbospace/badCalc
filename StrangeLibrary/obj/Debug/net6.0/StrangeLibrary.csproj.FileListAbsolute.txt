@@ -1,0 +1,15 @@
+C:\Users\azzhu\Documents\programming\c#\StrangeLibrary\bin\Debug\net6.0\StrangeLibrary.exe
+C:\Users\azzhu\Documents\programming\c#\StrangeLibrary\bin\Debug\net6.0\StrangeLibrary.deps.json
+C:\Users\azzhu\Documents\programming\c#\StrangeLibrary\bin\Debug\net6.0\StrangeLibrary.runtimeconfig.json
+C:\Users\azzhu\Documents\programming\c#\StrangeLibrary\bin\Debug\net6.0\StrangeLibrary.dll
+C:\Users\azzhu\Documents\programming\c#\StrangeLibrary\bin\Debug\net6.0\ref\StrangeLibrary.dll
+C:\Users\azzhu\Documents\programming\c#\StrangeLibrary\bin\Debug\net6.0\StrangeLibrary.pdb
+C:\Users\azzhu\Documents\programming\c#\StrangeLibrary\obj\Debug\net6.0\StrangeLibrary.csproj.AssemblyReference.cache
+C:\Users\azzhu\Documents\programming\c#\StrangeLibrary\obj\Debug\net6.0\StrangeLibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\azzhu\Documents\programming\c#\StrangeLibrary\obj\Debug\net6.0\StrangeLibrary.AssemblyInfoInputs.cache
+C:\Users\azzhu\Documents\programming\c#\StrangeLibrary\obj\Debug\net6.0\StrangeLibrary.AssemblyInfo.cs
+C:\Users\azzhu\Documents\programming\c#\StrangeLibrary\obj\Debug\net6.0\StrangeLibrary.csproj.CoreCompileInputs.cache
+C:\Users\azzhu\Documents\programming\c#\StrangeLibrary\obj\Debug\net6.0\StrangeLibrary.dll
+C:\Users\azzhu\Documents\programming\c#\StrangeLibrary\obj\Debug\net6.0\ref\StrangeLibrary.dll
+C:\Users\azzhu\Documents\programming\c#\StrangeLibrary\obj\Debug\net6.0\StrangeLibrary.pdb
+C:\Users\azzhu\Documents\programming\c#\StrangeLibrary\obj\Debug\net6.0\StrangeLibrary.genruntimeconfig.cache

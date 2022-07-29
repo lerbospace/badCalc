@@ -13,3 +13,18 @@ C:\Users\azzhu\Documents\Games-programming\2022\number and input test\Semester2\
 C:\Users\azzhu\Documents\Games-programming\2022\number and input test\Semester2\BadCalc\obj\Debug\net6.0\BadCalc.pdb
 C:\Users\azzhu\Documents\Games-programming\2022\number and input test\Semester2\BadCalc\obj\Debug\net6.0\BadCalc.genruntimeconfig.cache
 C:\Users\azzhu\Documents\Games-programming\2022\number and input test\Semester2\BadCalc\obj\Debug\net6.0\BadCalc.csproj.AssemblyReference.cache
+C:\Users\azzhu\Documents\programming\c#\BadCalc\bin\Debug\net6.0\BadCalc.exe
+C:\Users\azzhu\Documents\programming\c#\BadCalc\bin\Debug\net6.0\BadCalc.deps.json
+C:\Users\azzhu\Documents\programming\c#\BadCalc\bin\Debug\net6.0\BadCalc.runtimeconfig.json
+C:\Users\azzhu\Documents\programming\c#\BadCalc\bin\Debug\net6.0\BadCalc.dll
+C:\Users\azzhu\Documents\programming\c#\BadCalc\bin\Debug\net6.0\ref\BadCalc.dll
+C:\Users\azzhu\Documents\programming\c#\BadCalc\bin\Debug\net6.0\BadCalc.pdb
+C:\Users\azzhu\Documents\programming\c#\BadCalc\obj\Debug\net6.0\BadCalc.csproj.AssemblyReference.cache
+C:\Users\azzhu\Documents\programming\c#\BadCalc\obj\Debug\net6.0\BadCalc.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\azzhu\Documents\programming\c#\BadCalc\obj\Debug\net6.0\BadCalc.AssemblyInfoInputs.cache
+C:\Users\azzhu\Documents\programming\c#\BadCalc\obj\Debug\net6.0\BadCalc.AssemblyInfo.cs
+C:\Users\azzhu\Documents\programming\c#\BadCalc\obj\Debug\net6.0\BadCalc.csproj.CoreCompileInputs.cache
+C:\Users\azzhu\Documents\programming\c#\BadCalc\obj\Debug\net6.0\BadCalc.dll
+C:\Users\azzhu\Documents\programming\c#\BadCalc\obj\Debug\net6.0\ref\BadCalc.dll
+C:\Users\azzhu\Documents\programming\c#\BadCalc\obj\Debug\net6.0\BadCalc.pdb
+C:\Users\azzhu\Documents\programming\c#\BadCalc\obj\Debug\net6.0\BadCalc.genruntimeconfig.cache

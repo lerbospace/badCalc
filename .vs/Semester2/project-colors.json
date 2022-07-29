@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "a9e88154-e5fb-474a-bc0a-da8001540dee": {
+      "ProjectGuid": "a9e88154-e5fb-474a-bc0a-da8001540dee",
+      "DisplayName": "BadCalc",
+      "ColorIndex": 0
+    },
+    "c4760bc9-3be4-4d93-bf3b-049965d649e7": {
+      "ProjectGuid": "c4760bc9-3be4-4d93-bf3b-049965d649e7",
+      "DisplayName": "StrangeLibrary",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}
