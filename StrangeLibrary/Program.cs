@@ -17,7 +17,7 @@ public class program
             string input = Console.ReadLine();
             if (input.Length != 9)
             {
-                Console.WriteLine("Error: tha t does not appear to be a valid book ID!\nPlease enter another book ID.");
+                Console.WriteLine("Error: that does not appear to be a valid book ID!\nPlease enter another book ID.");
                 continue;
             }
             string line;
