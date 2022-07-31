@@ -9,80 +9,79 @@ public class program
 {
     public static void Main(String[] args)
     {
-
+        string[] libraryArray = File.ReadAllLines(@"C:\Users\azzhu\Documents\programming\c#\StrangeLibrary\strangeLibrary.in");
         for (; ; )
         {
-            StreamReader sr = new StreamReader(@"C:\Users\azzhu\Documents\programming\c#\StrangeLibrary\strangeLibrary.in");
             Console.Write("> ");
             string input = Console.ReadLine();
+            if (input.ToLower().Contains("q"))
+            {
+                Environment.Exit(0);
+            }
+
             if (input.Length != 9)
             {
                 Console.WriteLine("Error: that does not appear to be a valid book ID!\nPlease enter another book ID.");
                 continue;
             }
-            string line;
-            bool found = false;
 
-            while ((line = sr.ReadLine()) != null)
-            {
-                string[] splitinput = line.Split(',');
-                if (input == splitinput[0])
-                {
-                    switch (splitinput[3])
-                    {
-                        case "Romance":
-                            Romance romance = new Romance(splitinput[0], splitinput[1], splitinput[2], splitinput[3], splitinput[4]);
-                            romance.Display();
-                            romance.DisplayExtra();
-                            found = true;
-                            break;
-                        case "Horror":
-                            Horror horror = new Horror(splitinput[0], splitinput[1], splitinput[2], splitinput[3], splitinput[4]);
-                            horror.Display();
-                            horror.DisplayExtra();
-                            found = true;
-                            break;
-                        case "Non-fiction":
-                            NonFiction nonFiction = new NonFiction(splitinput[0], splitinput[1], splitinput[2], splitinput[3], splitinput[4]);
-                            nonFiction.Display();
-                            nonFiction.DisplayExtra();
-                            found = true;
-                            break;
-                        case "Classic":
-                            Classic classic = new Classic(splitinput[0], splitinput[1], splitinput[2], splitinput[3], splitinput[4]);
-                            classic.Display();
-                            classic.DisplayExtra();
-                            found = true;
-                            break;
-                        case "Fantasy":
-                            Fantasy fantasy = new Fantasy(splitinput[0], splitinput[1], splitinput[2], splitinput[3], splitinput[4]);
-                            fantasy.Display();
-                            fantasy.DisplayExtra();
-                            found = true;
-
-                            break;
-                        case "Cooking":
-                            Cooking cooking = new Cooking(splitinput[0], splitinput[1], splitinput[2], splitinput[3], splitinput[4]);
-                            cooking.Display();
-                            cooking.DisplayExtra();
-                            found = true;
-                            break;
-
-                    }
-                    found = true;
-                    break;
-
-                }
-            }
-            if (found != true)
+            string find = Array.Find(libraryArray, index => index.StartsWith(input));
+            if (find == null)
             {
                 Console.WriteLine("A book with that ID number could not be found!\nPlease enter another book ID.");
+
             }
+            string[] splitinput = find.Split(',');
+            if (input == splitinput[0])
+            {
+                switch (splitinput[3])
+                {
+                    case "Romance":
+                        Romance romance = new Romance(splitinput[0], splitinput[1], splitinput[2], splitinput[3], splitinput[4]);
+                        romance.Display();
+                        romance.DisplayExtra();
 
-            sr.Close();
+                        break;
+                    case "Horror":
+                        Horror horror = new Horror(splitinput[0], splitinput[1], splitinput[2], splitinput[3], splitinput[4]);
+                        horror.Display();
+                        horror.DisplayExtra();
 
+                        break;
+                    case "Non-fiction":
+                        NonFiction nonFiction = new NonFiction(splitinput[0], splitinput[1], splitinput[2], splitinput[3], splitinput[4]);
+                        nonFiction.Display();
+                        nonFiction.DisplayExtra();
+
+                        break;
+                    case "Classic":
+                        Classic classic = new Classic(splitinput[0], splitinput[1], splitinput[2], splitinput[3], splitinput[4]);
+                        classic.Display();
+                        classic.DisplayExtra();
+
+                        break;
+                    case "Fantasy":
+                        Fantasy fantasy = new Fantasy(splitinput[0], splitinput[1], splitinput[2], splitinput[3], splitinput[4]);
+                        fantasy.Display();
+                        fantasy.DisplayExtra();
+
+
+                        break;
+                    case "Cooking":
+                        Cooking cooking = new Cooking(splitinput[0], splitinput[1], splitinput[2], splitinput[3], splitinput[4]);
+                        cooking.Display();
+                        cooking.DisplayExtra();
+
+                        break;
+
+
+
+                }
+
+
+
+            }
         }
-
     }
 
     internal abstract class Book

@@ -10,6 +10,11 @@
       "ProjectGuid": "c4760bc9-3be4-4d93-bf3b-049965d649e7",
       "DisplayName": "StrangeLibrary",
       "ColorIndex": 1
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
     }
   },
   "NextColorIndex": 2
