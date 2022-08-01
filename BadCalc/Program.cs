@@ -193,8 +193,8 @@ namespace BadCalc
             }
 
 
-            try
-            {
+           // try
+            //{
 
             splitInput = expOrder(splitInput);
             splitInput = MDOrder(splitInput);
@@ -202,20 +202,20 @@ namespace BadCalc
 
             if (splitInput.Count != 0)
             {
-                int.Parse(splitInput[0]);
+                float.Parse(splitInput[0]);
             }
 
 
 
 
 
-            }
+         /*   }
 
             catch (Exception e)
             {
                 Console.WriteLine("Do math error");
                 splitInput[0] = " ";
-            }
+            }*/
             if (splitInput.Count != 0)
             {
                 return splitInput[0];
@@ -254,8 +254,8 @@ namespace BadCalc
                 List<string> splitInputBracket = (Regex.Split(input, @"\s*([()])\s*")).ToList();
                 splitInputBracket.RemoveAll(inputindex => string.IsNullOrWhiteSpace(inputindex));
 
-                try
-                {
+               // try
+                //{
                     for (int i = 0; i < splitInputBracket.Count; i++)
                     {
                         if (splitInputBracket[i] == "(")
@@ -267,20 +267,27 @@ namespace BadCalc
                             {
                                 splitInputBracket[i-1]=String.Concat(splitInputBracket[i-1],splitInputBracket[i]);
                                 splitInputBracket.RemoveAt(i);
+                                i--;
+
+                            }
+                            if (i != splitInputBracket.Count-1)
+                            { 
+                                splitInputBracket[i] = String.Concat(splitInputBracket[i], splitInputBracket[i+1]);
+                                splitInputBracket.RemoveAt(i+1);
                             }
 
 
                         }
                     }
                     splitInputBracket[0] = DoMath(splitInputBracket[0]);
-                }
+               /* }
                 catch (Exception ex)
                 {
                     if (splitInputBracket.Count != 0)
                     {
                         Console.WriteLine("Invalid input");
                     }
-                }
+                }*/
 
                 if (splitInputBracket.Count != 0)
                 {
