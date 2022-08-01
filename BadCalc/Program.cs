@@ -150,16 +150,99 @@ namespace BadCalc
         }
 
 
+        public string DoMath(string input)
+        {
 
 
-            public void Run()
+            List<string> splitInput = (Regex.Split(input, @"\s*([-+/*$])\s*")).ToList();
+            splitInput.RemoveAll(inputindex => string.IsNullOrWhiteSpace(inputindex));
+            foreach (string str in splitInput)
+            {
+                Console.WriteLine("DoMath {0}",str);
+            }
+            string[] check = { "+", "-", "*", "/", "$" };
+            for (int i = 1; i < splitInput.Count; i++)
+            {
+                if (check.Contains(splitInput[i - 1]) && splitInput[i] == "-")
+                {
+                    int.TryParse(splitInput[i + 1], out int n);
+                    splitInput[i + 1] = (n * -1).ToString();
+                    splitInput.RemoveAt(i);
+                }
+
+                if (check.Contains(splitInput[i - 1]) && splitInput[i] == "+")
+                {
+                    int.TryParse(splitInput[i + 1], out int n);
+                    splitInput[i + 1] = (n * 1).ToString();
+                    splitInput.RemoveAt(i);
+                }
+            }
+
+            if (splitInput.Count != 0)
+            {
+
+                if (splitInput[0] == "-")
+                {
+                    int.TryParse(splitInput[1], out int n);
+                    splitInput[1] = (n * -1).ToString();
+                    splitInput.RemoveAt(0);
+
+                }
+                if (splitInput[0] == "+")
+                {
+                    int.TryParse(splitInput[1], out int n);
+                    splitInput[1] = (n * 1).ToString();
+                    splitInput.RemoveAt(0);
+                    int.Parse(splitInput[0]);
+                }
+
+
+
+            }
+
+
+          //  try
+            //{
+
+                splitInput = expOrder(splitInput);
+                splitInput = MDOrder(splitInput);
+                splitInput = PMOrder(splitInput);
+
+                if (splitInput.Count != 0)
+                {
+                    int.Parse(splitInput[0]);
+                }
+
+
+
+
+
+           // }
+
+            /*catch (Exception e)
+            {
+                Console.WriteLine("Do math error");
+                splitInput[0] = " ";
+            }*/
+            if (splitInput.Count != 0)
+            {
+                return splitInput[0];
+            }
+            return null;
+
+        }
+
+
+
+
+        public void Run()
         {
            
             Console.WriteLine("Enter equations into the calcualtor by typing then pressing enter");
             Console.WriteLine("Does not follow order of operations");
             Console.WriteLine("valid symbols are plus(+), minus(-), multiple(*), divide(/) and exponents($)");
             Console.WriteLine("Enter q/Q to quit the program");
-            string[] check = { "+","-", "*", "/", "$" };
+           
             
             for (int j = 10; j > 1; j++)
             {
@@ -174,76 +257,39 @@ namespace BadCalc
                     Environment.Exit(0);
                 }
 
+                
 
-                List<string> splitInput = (Regex.Split(input, @"\s*([-+/*$()])\s*")).ToList();
-                splitInput.RemoveAll(inputindex => string.IsNullOrWhiteSpace(inputindex));
-
-
-                for (int i = 1; i < splitInput.Count; i++)
+                List<string> splitInputBracket = (Regex.Split(input, @"\s*([()])\s*")).ToList();
+                splitInputBracket.RemoveAll(inputindex => string.IsNullOrWhiteSpace(inputindex));
+                foreach (string str in splitInputBracket)
                 {
-                    if (check.Contains(splitInput[i - 1]) && splitInput[i] == "-")
-                    {
-                        int.TryParse(splitInput[i + 1], out int n);
-                        splitInput[i + 1] = (n * -1).ToString();
-                        splitInput.RemoveAt(i);
-                    }
-
-                    if (check.Contains(splitInput[i - 1]) && splitInput[i] == "+")
-                    {
-                        int.TryParse(splitInput[i + 1], out int n);
-                        splitInput[i + 1] = (n * 1).ToString();
-                        splitInput.RemoveAt(i);
-                    }
+                    Console.WriteLine(str);
                 }
+                    //try
+                    //{
+                    for (int i = 0; i < splitInputBracket.Count; i++)
+                    {
+                        if (splitInputBracket[i] == "(")
+                        {
 
-                if (splitInput.Count != 0)
+                            splitInputBracket[i + 1] = DoMath(splitInputBracket[i + 1]);
+                            splitInputBracket.RemoveAt(i);
+                            splitInputBracket.RemoveAt(i);
+
+                        }
+                    }
+                    splitInputBracket[0] = DoMath(splitInputBracket[0]);
+               // }
+                /*catch (Exception ex)
                 {
-
-                    if (splitInput[0] == "-")
+                    if (splitInputBracket.Count != 0)
                     {
-                        int.TryParse(splitInput[1], out int n);
-                        splitInput[1] = (n * -1).ToString();
-                        splitInput.RemoveAt(0);
-
+                        Console.WriteLine("Invalid input");
                     }
-                    if (splitInput[0] == "+")
-                    {
-                        int.TryParse(splitInput[1], out int n);
-                        splitInput[1] = (n * 1).ToString();
-                        splitInput.RemoveAt(0);
-                        int.Parse(splitInput[0]);
-                    }
+                }*/
 
 
-                   
-                }
-
-
-                try {
-
-                    if (splitInput.Count != 0)
-                    {
-                        int.Parse (splitInput[0]);
-                    }
-
-                    splitInput = expOrder(splitInput);
-                    splitInput = MDOrder(splitInput);
-                    splitInput = PMOrder(splitInput);
-
-                    
-                  
-                }
-
-                catch (Exception e)
-                {
-                    Console.WriteLine("Invalid input");
-                    splitInput[0] = " ";
-                }
-                if (splitInput.Count != 0)
-                {
-                    Console.WriteLine("> {0}", splitInput[0]);
-                }
-
+               
 
             }
         }
