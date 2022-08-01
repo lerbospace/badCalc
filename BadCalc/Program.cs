@@ -69,11 +69,90 @@ namespace BadCalc
         }
 
 
+        
+      public List<string> expOrder(List<string> splitInput)
+        {
+            for (int i = 0; i < splitInput.Count; i++)
+            {
+                if (splitInput[i] == "$")
+                {
+                    splitInput[i] = (power.Do(float.Parse(splitInput[i - 1]), float.Parse(splitInput[i + 1]))).ToString();
+                    splitInput.RemoveAt(i - 1);
+                    splitInput.RemoveAt(i);
+                    if (splitInput.Count != 1)
+                    {
+                        i = 0;
+                    }
+                }
+            }
+            return splitInput;
+        }
 
-      
+        public List<string> MDOrder(List<string> splitInput)
+        {
+            for (int i = 0; i < splitInput.Count; i++)
+            {
+                switch (splitInput[i])
+                {
+                    case "*":
+                        splitInput[i] = (multiply.Do(float.Parse(splitInput[i - 1]), float.Parse(splitInput[i + 1]))).ToString();
+                        splitInput.RemoveAt(i - 1);
+                        splitInput.RemoveAt(i);
+                        if (splitInput.Count != 1)
+                        {
+                            i = 0;
+                        }
+                        break;
+                    case "/":
+                        splitInput[i] = (divide.Do(float.Parse(splitInput[i - 1]), float.Parse(splitInput[i + 1]))).ToString();
+                        splitInput.RemoveAt(i - 1);
+                        splitInput.RemoveAt(i);
+                        if (splitInput.Count != 1)
+                        {
+                            i = 0;
+                        }
+                        break;
+                }
+                
+                
+            }
+            return splitInput;
+        }
+
+        public List<string> PMOrder(List<string> splitInput)
+        {
+            for (int i = 0; i < splitInput.Count; i++)
+            {
+                switch (splitInput[i])
+                {
+                    case "+":
+                        splitInput[i] = (add.Do(float.Parse(splitInput[i - 1]), float.Parse(splitInput[i + 1]))).ToString();
+                        splitInput.RemoveAt(i - 1);
+                        splitInput.RemoveAt(i);
+                        if (splitInput.Count != 1)
+                        {
+                            i = 0;
+                        }
+                        break;
+                    case "-":
+                        splitInput[i] = (minus.Do(float.Parse(splitInput[i - 1]), float.Parse(splitInput[i + 1]))).ToString();
+                        splitInput.RemoveAt(i - 1);
+                        splitInput.RemoveAt(i);
+                        if (splitInput.Count != 1)
+                        {
+                            i = 0;
+                        }
+                        break;
+                }
+
+            }
+            return splitInput;
+        }
 
 
-        public void Run()
+
+
+            public void Run()
         {
            
             Console.WriteLine("Enter equations into the calcualtor by typing then pressing enter");
@@ -96,7 +175,7 @@ namespace BadCalc
                 }
 
 
-                List<string> splitInput = (Regex.Split(input, @"\s*([-+/*$])\s*")).ToList();
+                List<string> splitInput = (Regex.Split(input, @"\s*([-+/*$()])\s*")).ToList();
                 splitInput.RemoveAll(inputindex => string.IsNullOrWhiteSpace(inputindex));
 
 
@@ -115,99 +194,44 @@ namespace BadCalc
                         splitInput[i + 1] = (n * 1).ToString();
                         splitInput.RemoveAt(i);
                     }
-
-
-
                 }
 
-              
-                try
+                if (splitInput.Count != 0)
                 {
 
-                    if (splitInput.Count != 0)
+                    if (splitInput[0] == "-")
                     {
+                        int.TryParse(splitInput[1], out int n);
+                        splitInput[1] = (n * -1).ToString();
+                        splitInput.RemoveAt(0);
 
-
-                        if (splitInput[0] == "-")
-                        {
-                            int.TryParse(splitInput[1], out int n);
-                            splitInput[1] = (n * -1).ToString();
-                            splitInput.RemoveAt(0);
-
-                        }
-                        if (splitInput[0] == "+")
-                        {
-                            int.TryParse(splitInput[1], out int n);
-                            splitInput[1] = (n * 1).ToString();
-                            splitInput.RemoveAt(0);
-                            int.Parse(splitInput[0]);
-                        }
-                        if (splitInput[splitInput.Count - 1] == "=")
-                        {
-                            splitInput.RemoveAt(splitInput.Count - 1);
-                        }
-                       
+                    }
+                    if (splitInput[0] == "+")
+                    {
+                        int.TryParse(splitInput[1], out int n);
+                        splitInput[1] = (n * 1).ToString();
+                        splitInput.RemoveAt(0);
                         int.Parse(splitInput[0]);
                     }
 
-                    for (int i = 0; i < splitInput.Count; i++)
+
+                   
+                }
+
+
+                try {
+
+                    if (splitInput.Count != 0)
                     {
-                        switch (splitInput[i])
-                        {
-                            case "+":
-                                splitInput[i] = (add.Do(float.Parse(splitInput[i - 1]), float.Parse(splitInput[i + 1]))).ToString();
-                                splitInput.RemoveAt(i - 1);
-                                splitInput.RemoveAt(i);
-                                if (splitInput.Count != 1)
-                                {
-                                    i = 0;
-                                }
-
-                                break;
-                            case "-":
-                                splitInput[i] = (minus.Do(float.Parse(splitInput[i - 1]), float.Parse(splitInput[i + 1]))).ToString();
-                                splitInput.RemoveAt(i - 1);
-                                splitInput.RemoveAt(i);
-                                if (splitInput.Count != 1)
-                                {
-                                    i = 0;
-                                }
-
-                                break;
-                            case "*":
-                                splitInput[i] = (multiply.Do(float.Parse(splitInput[i - 1]), float.Parse(splitInput[i + 1]))).ToString();
-                                splitInput.RemoveAt(i - 1);
-                                splitInput.RemoveAt(i);
-                                if (splitInput.Count != 1)
-                                {
-                                    i = 0;
-                                }
-
-                                break;
-                            case "/":
-                                splitInput[i] = (divide.Do(float.Parse(splitInput[i - 1]), float.Parse(splitInput[i + 1]))).ToString();
-                                splitInput.RemoveAt(i - 1);
-                                splitInput.RemoveAt(i);
-                                if (splitInput.Count != 1)
-                                {
-                                    i = 0;
-                                }
-
-                                break;
-                            case "$":
-                                splitInput[i] = (power.Do(float.Parse(splitInput[i - 1]), float.Parse(splitInput[i + 1]))).ToString();
-                                splitInput.RemoveAt(i - 1);
-                                splitInput.RemoveAt(i);
-                                if (splitInput.Count != 1)
-                                {
-                                    i = 0;
-                                }
-
-                                break;
-
-                        }
+                        int.Parse (splitInput[0]);
                     }
 
+                    splitInput = expOrder(splitInput);
+                    splitInput = MDOrder(splitInput);
+                    splitInput = PMOrder(splitInput);
+
+                    
+                  
                 }
 
                 catch (Exception e)

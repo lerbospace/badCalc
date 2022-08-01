@@ -1,0 +1,15 @@
+C:\Users\azzhu\Documents\programming\c#\BracketTest\bin\Debug\net6.0\BracketTest.exe
+C:\Users\azzhu\Documents\programming\c#\BracketTest\bin\Debug\net6.0\BracketTest.deps.json
+C:\Users\azzhu\Documents\programming\c#\BracketTest\bin\Debug\net6.0\BracketTest.runtimeconfig.json
+C:\Users\azzhu\Documents\programming\c#\BracketTest\bin\Debug\net6.0\BracketTest.dll
+C:\Users\azzhu\Documents\programming\c#\BracketTest\bin\Debug\net6.0\ref\BracketTest.dll
+C:\Users\azzhu\Documents\programming\c#\BracketTest\bin\Debug\net6.0\BracketTest.pdb
+C:\Users\azzhu\Documents\programming\c#\BracketTest\obj\Debug\net6.0\BracketTest.csproj.AssemblyReference.cache
+C:\Users\azzhu\Documents\programming\c#\BracketTest\obj\Debug\net6.0\BracketTest.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\azzhu\Documents\programming\c#\BracketTest\obj\Debug\net6.0\BracketTest.AssemblyInfoInputs.cache
+C:\Users\azzhu\Documents\programming\c#\BracketTest\obj\Debug\net6.0\BracketTest.AssemblyInfo.cs
+C:\Users\azzhu\Documents\programming\c#\BracketTest\obj\Debug\net6.0\BracketTest.csproj.CoreCompileInputs.cache
+C:\Users\azzhu\Documents\programming\c#\BracketTest\obj\Debug\net6.0\BracketTest.dll
+C:\Users\azzhu\Documents\programming\c#\BracketTest\obj\Debug\net6.0\ref\BracketTest.dll
+C:\Users\azzhu\Documents\programming\c#\BracketTest\obj\Debug\net6.0\BracketTest.pdb
+C:\Users\azzhu\Documents\programming\c#\BracketTest\obj\Debug\net6.0\BracketTest.genruntimeconfig.cache

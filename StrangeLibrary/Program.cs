@@ -9,79 +9,91 @@ public class program
 {
     public static void Main(String[] args)
     {
-        string[] libraryArray = File.ReadAllLines(@"C:\Users\azzhu\Documents\programming\c#\StrangeLibrary\strangeLibrary.in");
+
         for (; ; )
         {
-            Console.Write("> ");
-            string input = Console.ReadLine();
-            if (input.ToLower().Contains("q"))
+            try
             {
-                Environment.Exit(0);
-            }
-
-            if (input.Length != 9)
-            {
-                Console.WriteLine("Error: that does not appear to be a valid book ID!\nPlease enter another book ID.");
-                continue;
-            }
-
-            string find = Array.Find(libraryArray, index => index.StartsWith(input));
-            if (find == null)
-            {
-                Console.WriteLine("A book with that ID number could not be found!\nPlease enter another book ID.");
-
-            }
-            string[] splitinput = find.Split(',');
-            if (input == splitinput[0])
-            {
-                switch (splitinput[3])
+                
+                Console.Write("> ");
+                string input = Console.ReadLine();
+                if (input.ToLower().Contains("q"))
                 {
-                    case "Romance":
-                        Romance romance = new Romance(splitinput[0], splitinput[1], splitinput[2], splitinput[3], splitinput[4]);
-                        romance.Display();
-                        romance.DisplayExtra();
+                    Console.WriteLine("Exiting Program");
+                    Environment.Exit(0);
+                }
 
-                        break;
-                    case "Horror":
-                        Horror horror = new Horror(splitinput[0], splitinput[1], splitinput[2], splitinput[3], splitinput[4]);
-                        horror.Display();
-                        horror.DisplayExtra();
+                if (input.Length != 9)
+                {
+                    Console.WriteLine("Error: that does not appear to be a valid book ID!\nPlease enter another book ID.");
+                    continue;
+                }
+                string[] libraryArray = File.ReadAllLines(@"C:\Users\azzhu\Documents\programming\c#\StrangeLibrary\strangeLibrary.in");
+                string find = Array.Find(libraryArray, index => index.StartsWith(input));
+                if (find == null)
+                {
+                    Console.WriteLine("A book with that ID number could not be found!\nPlease enter another book ID.");
+                    continue;
 
-                        break;
-                    case "Non-fiction":
-                        NonFiction nonFiction = new NonFiction(splitinput[0], splitinput[1], splitinput[2], splitinput[3], splitinput[4]);
-                        nonFiction.Display();
-                        nonFiction.DisplayExtra();
+                }
+                string[] splitinput = find.Split(',');
+                if (input == splitinput[0])
+                {
+                    switch (splitinput[3])
+                    {
+                        case "Romance":
+                            Romance romance = new Romance(splitinput[0], splitinput[1], splitinput[2], splitinput[3], splitinput[4]);
+                            romance.Display();
+                            romance.DisplayExtra();
 
-                        break;
-                    case "Classic":
-                        Classic classic = new Classic(splitinput[0], splitinput[1], splitinput[2], splitinput[3], splitinput[4]);
-                        classic.Display();
-                        classic.DisplayExtra();
+                            break;
+                        case "Horror":
+                            Horror horror = new Horror(splitinput[0], splitinput[1], splitinput[2], splitinput[3], splitinput[4]);
+                            horror.Display();
+                            horror.DisplayExtra();
 
-                        break;
-                    case "Fantasy":
-                        Fantasy fantasy = new Fantasy(splitinput[0], splitinput[1], splitinput[2], splitinput[3], splitinput[4]);
-                        fantasy.Display();
-                        fantasy.DisplayExtra();
+                            break;
+                        case "Non-fiction":
+                            NonFiction nonFiction = new NonFiction(splitinput[0], splitinput[1], splitinput[2], splitinput[3], splitinput[4]);
+                            nonFiction.Display();
+                            nonFiction.DisplayExtra();
+
+                            break;
+                        case "Classic":
+                            Classic classic = new Classic(splitinput[0], splitinput[1], splitinput[2], splitinput[3], splitinput[4]);
+                            classic.Display();
+                            classic.DisplayExtra();
+
+                            break;
+                        case "Fantasy":
+                            Fantasy fantasy = new Fantasy(splitinput[0], splitinput[1], splitinput[2], splitinput[3], splitinput[4]);
+                            fantasy.Display();
+                            fantasy.DisplayExtra();
 
 
-                        break;
-                    case "Cooking":
-                        Cooking cooking = new Cooking(splitinput[0], splitinput[1], splitinput[2], splitinput[3], splitinput[4]);
-                        cooking.Display();
-                        cooking.DisplayExtra();
+                            break;
+                        case "Cooking":
+                            Cooking cooking = new Cooking(splitinput[0], splitinput[1], splitinput[2], splitinput[3], splitinput[4]);
+                            cooking.Display();
+                            cooking.DisplayExtra();
 
-                        break;
+                            break;
+
+
+
+                    }
 
 
 
                 }
-
-
-
             }
-        }
+            catch (Exception e)
+            { 
+                Console.WriteLine("Abnormal error encountered \n{0}",e.Message.ToString());
+            }
+
+            
+            }
     }
 
     internal abstract class Book

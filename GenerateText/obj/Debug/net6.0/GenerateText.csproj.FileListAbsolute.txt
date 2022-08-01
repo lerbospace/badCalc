@@ -1,0 +1,14 @@
+C:\Users\azzhu\Documents\programming\c#\GenerateText\obj\Debug\net6.0\GenerateText.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\azzhu\Documents\programming\c#\GenerateText\obj\Debug\net6.0\GenerateText.AssemblyInfoInputs.cache
+C:\Users\azzhu\Documents\programming\c#\GenerateText\obj\Debug\net6.0\GenerateText.AssemblyInfo.cs
+C:\Users\azzhu\Documents\programming\c#\GenerateText\obj\Debug\net6.0\GenerateText.csproj.CoreCompileInputs.cache
+C:\Users\azzhu\Documents\programming\c#\GenerateText\bin\Debug\net6.0\GenerateText.exe
+C:\Users\azzhu\Documents\programming\c#\GenerateText\bin\Debug\net6.0\GenerateText.deps.json
+C:\Users\azzhu\Documents\programming\c#\GenerateText\bin\Debug\net6.0\GenerateText.runtimeconfig.json
+C:\Users\azzhu\Documents\programming\c#\GenerateText\bin\Debug\net6.0\GenerateText.dll
+C:\Users\azzhu\Documents\programming\c#\GenerateText\bin\Debug\net6.0\ref\GenerateText.dll
+C:\Users\azzhu\Documents\programming\c#\GenerateText\bin\Debug\net6.0\GenerateText.pdb
+C:\Users\azzhu\Documents\programming\c#\GenerateText\obj\Debug\net6.0\GenerateText.dll
+C:\Users\azzhu\Documents\programming\c#\GenerateText\obj\Debug\net6.0\ref\GenerateText.dll
+C:\Users\azzhu\Documents\programming\c#\GenerateText\obj\Debug\net6.0\GenerateText.pdb
+C:\Users\azzhu\Documents\programming\c#\GenerateText\obj\Debug\net6.0\GenerateText.genruntimeconfig.cache
