@@ -90,6 +90,10 @@ namespace BadCalc
                 switch (splitInput[i])
                 {
                     case "*":
+                        float a = float.Parse(splitInput[i - 1]);
+                        float b = float.Parse(splitInput[i + 1]);
+                        float c = multiply.Do(a, b);
+                        string d = c.ToString();
                         splitInput[i] = (multiply.Do(float.Parse(splitInput[i - 1]), float.Parse(splitInput[i + 1]))).ToString();
                         splitInput.RemoveAt(i - 1);
                         splitInput.RemoveAt(i);
@@ -225,6 +229,33 @@ namespace BadCalc
         }
 
 
+        string BracketRecurse(List<string> input,int start)
+        {
+           
+            int end = input.Count;
+            for(int i = start; i < end; i++)
+            {
+                if (input[i] == "(")
+                {
+                    BracketRecurse(input,i+1);
+                }
+                if (input[i] == ")")
+                {
+                    end = i;
+                }
+            }
+            
+          
+            input[start+1] = DoMath(input[start]);
+         
+            input.RemoveAt(start-1);
+           // Console.WriteLine(input[start+1]);
+            input.RemoveAt(start-1);
+      
+            return input[start-1];
+        }
+
+
 
 
         public void Run()
@@ -254,15 +285,15 @@ namespace BadCalc
                 List<string> splitInputBracket = (Regex.Split(input, @"\s*([()])\s*")).ToList();
                 splitInputBracket.RemoveAll(inputindex => string.IsNullOrWhiteSpace(inputindex));
 
-               // try
+                // try
                 //{
+                BracketRecurse(splitInputBracket, 0);
                     for (int i = 0; i < splitInputBracket.Count; i++)
                     {
                         if (splitInputBracket[i] == "(")
                         {
-                            splitInputBracket[i + 2] = DoMath(splitInputBracket[i + 1]);
-                            splitInputBracket.RemoveAt(i);
-                            splitInputBracket.RemoveAt(i);
+                            splitInputBracket[i] = BracketRecurse(splitInputBracket,i+1);
+                            
                             if (i != 0)
                             {
                                 splitInputBracket[i-1]=String.Concat(splitInputBracket[i-1],splitInputBracket[i]);
