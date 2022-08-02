@@ -153,7 +153,7 @@ namespace BadCalc
         {
 
 
-            List<string> splitInput = (Regex.Split(input, @"\s*([-+/*$])\s*")).ToList();
+            List<string> splitInput = (Regex.Split(input, @"\s*([-+/*])\s*")).ToList();
             splitInput.RemoveAll(inputindex => string.IsNullOrWhiteSpace(inputindex));
            
             string[] check = { "+", "-", "*", "/", "$" };
@@ -245,7 +245,18 @@ namespace BadCalc
                 }
             }
             
-          
+            if(input[start-1]!= "(")
+            {
+                input[start - 1] = String.Concat(input[start - 1], input[start]);
+                input.RemoveAt(start);
+                start--;
+            }
+            if (input[start + 1] != ")")
+            {
+                input[start] = String.Concat(input[start], input[start+1]);
+                input.RemoveAt(start+1);
+                
+            }
             input[start+1] = DoMath(input[start]);
          
             input.RemoveAt(start-1);
@@ -287,7 +298,7 @@ namespace BadCalc
 
                 // try
                 //{
-                BracketRecurse(splitInputBracket, 0);
+                
                     for (int i = 0; i < splitInputBracket.Count; i++)
                     {
                         if (splitInputBracket[i] == "(")
