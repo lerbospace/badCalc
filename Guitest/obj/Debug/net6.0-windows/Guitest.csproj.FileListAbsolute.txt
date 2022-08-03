@@ -1,0 +1,17 @@
+C:\Users\azzhu\Documents\programming\c#\Guitest\bin\Debug\net6.0-windows\Guitest.exe
+C:\Users\azzhu\Documents\programming\c#\Guitest\bin\Debug\net6.0-windows\Guitest.deps.json
+C:\Users\azzhu\Documents\programming\c#\Guitest\bin\Debug\net6.0-windows\Guitest.runtimeconfig.json
+C:\Users\azzhu\Documents\programming\c#\Guitest\bin\Debug\net6.0-windows\Guitest.dll
+C:\Users\azzhu\Documents\programming\c#\Guitest\bin\Debug\net6.0-windows\ref\Guitest.dll
+C:\Users\azzhu\Documents\programming\c#\Guitest\bin\Debug\net6.0-windows\Guitest.pdb
+C:\Users\azzhu\Documents\programming\c#\Guitest\obj\Debug\net6.0-windows\Guitest.csproj.AssemblyReference.cache
+C:\Users\azzhu\Documents\programming\c#\Guitest\obj\Debug\net6.0-windows\Guitest.Form1.resources
+C:\Users\azzhu\Documents\programming\c#\Guitest\obj\Debug\net6.0-windows\Guitest.csproj.GenerateResource.cache
+C:\Users\azzhu\Documents\programming\c#\Guitest\obj\Debug\net6.0-windows\Guitest.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\azzhu\Documents\programming\c#\Guitest\obj\Debug\net6.0-windows\Guitest.AssemblyInfoInputs.cache
+C:\Users\azzhu\Documents\programming\c#\Guitest\obj\Debug\net6.0-windows\Guitest.AssemblyInfo.cs
+C:\Users\azzhu\Documents\programming\c#\Guitest\obj\Debug\net6.0-windows\Guitest.csproj.CoreCompileInputs.cache
+C:\Users\azzhu\Documents\programming\c#\Guitest\obj\Debug\net6.0-windows\Guitest.dll
+C:\Users\azzhu\Documents\programming\c#\Guitest\obj\Debug\net6.0-windows\ref\Guitest.dll
+C:\Users\azzhu\Documents\programming\c#\Guitest\obj\Debug\net6.0-windows\Guitest.pdb
+C:\Users\azzhu\Documents\programming\c#\Guitest\obj\Debug\net6.0-windows\Guitest.genruntimeconfig.cache

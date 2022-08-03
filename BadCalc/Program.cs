@@ -153,12 +153,39 @@ namespace BadCalc
         {
 
 
-            List<string> splitInput = (Regex.Split(input, @"\s*([-+/*^])\s*")).ToList();
+            List<string> splitInput = Regex.Split(input, @"\s*([-+/*^])\s*").ToList();
             splitInput.RemoveAll(inputindex => string.IsNullOrWhiteSpace(inputindex));
            
             string[] check = { "+", "-", "*", "/", "^" };
+            string[] checkpm = { "+", "-" };
             for (int i = 1; i < splitInput.Count; i++)
             {
+
+                if (checkpm.Contains(splitInput[i - 1]) && splitInput[i] == "+")
+                {
+                    splitInput.RemoveAt(i);
+                    i--;
+                }
+                if (checkpm.Contains(splitInput[i - 1]) && splitInput[i] == "-")
+                {
+                    if (splitInput[i - 1] == "+")
+                    {
+                        splitInput.RemoveAt(i - 1);
+                        i--;
+                    }
+                    else if (splitInput[i - 1] == "-")
+                    {
+                        splitInput[i] = "+";
+                        splitInput.RemoveAt(i - 1);
+                        i--;
+                    }
+
+                }
+            }
+
+            for (int i = 1; i < splitInput.Count; i++)
+            {
+
                 if (check.Contains(splitInput[i - 1]) && splitInput[i] == "-")
                 {
                     int.TryParse(splitInput[i + 1], out int n);
@@ -197,8 +224,8 @@ namespace BadCalc
             }
 
 
-           try
-            {
+          // try
+            //{
 
             splitInput = expOrder(splitInput);
             splitInput = MDOrder(splitInput);
@@ -213,13 +240,13 @@ namespace BadCalc
 
 
 
-            }
+          /*  }
 
             catch (Exception e)
             {
                 Console.WriteLine("Do math error");
                 splitInput[0] = " ";
-            }
+            }*/
             if (splitInput.Count != 0)
             {
                 return splitInput[0];
@@ -274,7 +301,7 @@ namespace BadCalc
 
             Console.WriteLine("Enter equations into the calcualtor by typing then pressing enter");
             Console.WriteLine("Does not follow order of operations");
-            Console.WriteLine("valid symbols are plus(+), minus(-), multiple(*), divide(/) and exponents($)");
+            Console.WriteLine("valid symbols are plus(+), minus(-), multiple(*), divide(/) and exponents(^)");
             Console.WriteLine("Enter q/Q to quit the program");
 
 
@@ -295,9 +322,20 @@ namespace BadCalc
 
                 List<string> splitInputBracket = (Regex.Split(input, @"\s*([()])\s*")).ToList();
                 splitInputBracket.RemoveAll(inputindex => string.IsNullOrWhiteSpace(inputindex));
+                char[] check = {'(','+','-','*','/','^' };
 
-                 try
+
+                for (int i = 1; i < splitInputBracket.Count; i++)
                 {
+                    if (splitInputBracket[i] == "(" && check.Any(splitInputBracket[i-1]))
+                    {
+                        splitInputBracket[i - 1] = String.Concat(splitInputBracket[i - 1], "*");
+
+                    }
+                }
+
+                // try
+                //{
                 
                     for (int i = 0; i < splitInputBracket.Count; i++)
                     {
@@ -309,7 +347,7 @@ namespace BadCalc
                             {
                                 splitInputBracket[i-1]=String.Concat(splitInputBracket[i-1],splitInputBracket[i]);
                                 splitInputBracket.RemoveAt(i);
-                                i--;
+                                    i--;
 
                             }
                             if (i != splitInputBracket.Count-1)
@@ -317,6 +355,7 @@ namespace BadCalc
                                 splitInputBracket[i] = String.Concat(splitInputBracket[i], splitInputBracket[i+1]);
                                 splitInputBracket.RemoveAt(i+1);
                             }
+                            
 
 
                         }
@@ -325,14 +364,14 @@ namespace BadCalc
                 {
                     splitInputBracket[0] = DoMath(splitInputBracket[0]);
                 }
-               }
-                catch (Exception ex)
-                {
+               /*}
+                /catch (Exception ex)
+                /{
                     if (splitInputBracket.Count != 0)
                     {
                         Console.WriteLine("Invalid input");
                     }
-                }
+                }*/
 
                 if (splitInputBracket.Count != 0)
                 {

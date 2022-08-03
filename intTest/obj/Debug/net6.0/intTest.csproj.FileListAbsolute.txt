@@ -1,0 +1,14 @@
+C:\Users\azzhu\Documents\programming\c#\intTest\bin\Debug\net6.0\intTest.exe
+C:\Users\azzhu\Documents\programming\c#\intTest\bin\Debug\net6.0\intTest.deps.json
+C:\Users\azzhu\Documents\programming\c#\intTest\bin\Debug\net6.0\intTest.runtimeconfig.json
+C:\Users\azzhu\Documents\programming\c#\intTest\bin\Debug\net6.0\intTest.dll
+C:\Users\azzhu\Documents\programming\c#\intTest\bin\Debug\net6.0\ref\intTest.dll
+C:\Users\azzhu\Documents\programming\c#\intTest\bin\Debug\net6.0\intTest.pdb
+C:\Users\azzhu\Documents\programming\c#\intTest\obj\Debug\net6.0\intTest.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\azzhu\Documents\programming\c#\intTest\obj\Debug\net6.0\intTest.AssemblyInfoInputs.cache
+C:\Users\azzhu\Documents\programming\c#\intTest\obj\Debug\net6.0\intTest.AssemblyInfo.cs
+C:\Users\azzhu\Documents\programming\c#\intTest\obj\Debug\net6.0\intTest.csproj.CoreCompileInputs.cache
+C:\Users\azzhu\Documents\programming\c#\intTest\obj\Debug\net6.0\intTest.dll
+C:\Users\azzhu\Documents\programming\c#\intTest\obj\Debug\net6.0\ref\intTest.dll
+C:\Users\azzhu\Documents\programming\c#\intTest\obj\Debug\net6.0\intTest.pdb
+C:\Users\azzhu\Documents\programming\c#\intTest\obj\Debug\net6.0\intTest.genruntimeconfig.cache
