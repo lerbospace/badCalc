@@ -356,9 +356,17 @@ namespace BadCalc
                     {
                         splitInputBracket[i - 1] = String.Concat(String.Format("{0}", splitInputBracket[i - 1]), "*");
                         List<string> temp = splitInputBracket.ToList();
-                        for (int ch = splitInputBracket[i - 1].Length - 2; ch > 0; ch--)
+                        if(temp != splitInputBracket)
                         {
-                            if (check.Contains(splitInputBracket[i - 1][ch]))
+                            Console.WriteLine("Not equall");
+                        }
+                        if (temp.Equals( splitInputBracket))
+                        {
+                            Console.WriteLine("equall");
+                        }
+                        for (int ch = splitInputBracket[i - 1].Length - 2; ch > -1; ch--)
+                        {
+                            if (check.Contains(splitInputBracket[i - 1][ch]) )
                             {
                                 string temp0 = splitInputBracket[i - 1].Substring(0, ch+1);
                                 string temp1 = splitInputBracket[i - 1].Substring(ch+1);
@@ -366,7 +374,10 @@ namespace BadCalc
                                 splitInputBracket.Insert(i, temp1);
                                 splitInputBracket.Insert(i, "(");
                                 
-                            }
+                            }else if(ch == 0)
+                            {
+
+                            } 
                             //splitInputBracket.Insert(i - 1, "(");
 
 
@@ -380,9 +391,28 @@ namespace BadCalc
 
                     if (splitInputBracket[i] == ")" && !check.Contains(splitInputBracket[i + 1][0]) && splitInputBracket[i + 1] != ")")
                     {
-                        splitInputBracket[i + 1] = String.Concat(String.Format("{0}", splitInputBracket[i + 1]), "*");
-                        splitInputBracket.Insert(i + 1, ")");
-                        splitInputBracket = BracketRecurseNoMath(splitInputBracket, i + 1, 0);
+                        splitInputBracket[i + 1] = String.Concat("*",String.Format("{0}", splitInputBracket[i + 1]));
+                        List<string> temp = splitInputBracket.ToList();
+                        for (int ch = splitInputBracket[i + 1].Length - 2; ch > 0; ch--)
+                        {
+                            if (check.Contains(splitInputBracket[i + 1][ch]))
+                            {
+                                string temp0 = splitInputBracket[i + 1].Substring(0, ch + 1);
+                                string temp1 = splitInputBracket[i + 1].Substring(ch + 1);
+                                splitInputBracket[i - 1] = temp0;
+                                splitInputBracket.Insert(i, temp1);
+                                splitInputBracket.Insert(i, ")");
+
+                            }
+                            //splitInputBracket.Insert(i - 1, "(");
+
+
+
+                        }
+                        if (temp != splitInputBracket)
+                        {
+                            splitInputBracket = BracketRecurseNoMath(splitInputBracket, i + 1, 0);
+                        }
 
                     }
                 }
