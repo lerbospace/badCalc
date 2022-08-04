@@ -155,7 +155,7 @@ namespace BadCalc
 
             List<string> splitInput = Regex.Split(input, @"\s*([-+/*^])\s*").ToList();
             splitInput.RemoveAll(inputindex => string.IsNullOrWhiteSpace(inputindex));
-           
+
             string[] check = { "+", "-", "*", "/", "^" };
             string[] checkpm = { "+", "-" };
             for (int i = 1; i < splitInput.Count; i++)
@@ -224,7 +224,7 @@ namespace BadCalc
             }
 
 
-          // try
+            // try
             //{
 
             splitInput = expOrder(splitInput);
@@ -240,13 +240,13 @@ namespace BadCalc
 
 
 
-          /*  }
+            /*  }
 
-            catch (Exception e)
-            {
-                Console.WriteLine("Do math error");
-                splitInput[0] = " ";
-            }*/
+              catch (Exception e)
+              {
+                  Console.WriteLine("Do math error");
+                  splitInput[0] = " ";
+              }*/
             if (splitInput.Count != 0)
             {
                 return splitInput[0];
@@ -256,23 +256,24 @@ namespace BadCalc
         }
 
 
-        string BracketRecurse(List<string> input,int start)
+        string BracketRecurse(List<string> input, int start)
         {
-           
+
             int end = input.Count;
-            for(int i = start; i < end; i++)
+            for (int i = start; i < end; i++)
             {
                 if (input[i] == "(")
                 {
-                    BracketRecurse(input,i+1);
+                    BracketRecurse(input, i + 1);
+                    end = input.Count;
                 }
                 if (input[i] == ")")
                 {
                     end = i;
                 }
             }
-            
-            if(input[start-1]!= "(")
+
+            if (input[start - 1] != "(")
             {
                 input[start - 1] = String.Concat(input[start - 1], input[start]);
                 input.RemoveAt(start);
@@ -280,21 +281,41 @@ namespace BadCalc
             }
             if (input[start + 1] != ")")
             {
-                input[start] = String.Concat(input[start], input[start+1]);
-                input.RemoveAt(start+1);
-                
+                input[start] = String.Concat(input[start], input[start + 1]);
+                input.RemoveAt(start + 1);
+
             }
-            input[start+1] = DoMath(input[start]);
-         
-            input.RemoveAt(start-1);
-           // Console.WriteLine(input[start+1]);
-            input.RemoveAt(start-1);
-      
-            return input[start-1];
+            input[start + 1] = DoMath(input[start]);
+
+            input.RemoveAt(start - 1);
+            // Console.WriteLine(input[start+1]);
+            input.RemoveAt(start - 1);
+
+            return input[start - 1];
         }
 
 
+        public List<string> BracketRecurseNoMath(List<string> input, int start, int top)
+        {
+            int end = input.Count;
+            for (int i = start; i < end; i++)
+            {
+                if (input[i] == "(")
+                {
+                    BracketRecurseNoMath(input, i + 1, top + 1);
+                }
+                if (input[i] == ")")
+                {
+                    end = i;
+                }
+            }
+            if (top == 0)
+            {
+                input.Insert(end + 1, ")");
+            }
 
+            return input;
+        }
 
         public void Run()
         {
@@ -311,7 +332,7 @@ namespace BadCalc
                 Console.Write("> ");
                 string input = Console.ReadLine();
 
-                input = input.Replace('=', ' ');
+
 
                 if (input.ToLower().Contains("q"))
                 {
@@ -322,61 +343,89 @@ namespace BadCalc
 
                 List<string> splitInputBracket = (Regex.Split(input, @"\s*([()])\s*")).ToList();
                 splitInputBracket.RemoveAll(inputindex => string.IsNullOrWhiteSpace(inputindex));
-                char[] check = {'(','+','-','*','/','^' };
-
-
-                for (int i = 1; i < splitInputBracket.Count-1; i++)
+                char[] check = { '+', '-', '*', '/', '^' };
+                if (splitInputBracket[splitInputBracket.Count - 1][splitInputBracket[splitInputBracket.Count - 1].Length - 1] == '=')
                 {
-                    if (splitInputBracket[i] == "(" && !check.Contains(splitInputBracket[i-1][splitInputBracket[i-1].Length-1]))
-                    {
-                        splitInputBracket[i - 1] = String.Concat(splitInputBracket[i - 1], "*");
+                    //to implement variables
+                }
 
-                    }
-                    if (splitInputBracket[i] == ")" && !check.Contains(splitInputBracket[i + 1][0]))
+                for (int i = 1; i < splitInputBracket.Count - 1; i++)
+                {
+                    
+                    if (splitInputBracket[i] == "(" && !check.Contains(splitInputBracket[i - 1][splitInputBracket[i - 1].Length - 1]) && splitInputBracket[i - 1] != "(")
                     {
-                        splitInputBracket[i + 1] = String.Concat("*", splitInputBracket[i + 1]);
+                        splitInputBracket[i - 1] = String.Concat(String.Format("{0}", splitInputBracket[i - 1]), "*");
+                        List<string> temp = splitInputBracket.ToList();
+                        for (int ch = splitInputBracket[i - 1].Length - 2; ch > 0; ch--)
+                        {
+                            if (check.Contains(splitInputBracket[i - 1][ch]))
+                            {
+                                string temp0 = splitInputBracket[i - 1].Substring(0, ch+1);
+                                string temp1 = splitInputBracket[i - 1].Substring(ch+1);
+                                splitInputBracket[i - 1] = temp0;
+                                splitInputBracket.Insert(i, temp1);
+                                splitInputBracket.Insert(i, "(");
+                                
+                            }
+                            //splitInputBracket.Insert(i - 1, "(");
+
+
+
+                        }
+                        if (temp != splitInputBracket)
+                        {
+                            splitInputBracket = BracketRecurseNoMath(splitInputBracket, i + 1, 0);
+                        }
+                    }
+
+                    if (splitInputBracket[i] == ")" && !check.Contains(splitInputBracket[i + 1][0]) && splitInputBracket[i + 1] != ")")
+                    {
+                        splitInputBracket[i + 1] = String.Concat(String.Format("{0}", splitInputBracket[i + 1]), "*");
+                        splitInputBracket.Insert(i + 1, ")");
+                        splitInputBracket = BracketRecurseNoMath(splitInputBracket, i + 1, 0);
 
                     }
                 }
 
+
                 // try
                 //{
-                
-                    for (int i = 0; i < splitInputBracket.Count; i++)
+
+                for (int i = 0; i < splitInputBracket.Count; i++)
+                {
+                    if (splitInputBracket[i] == "(")
                     {
-                        if (splitInputBracket[i] == "(")
+                        splitInputBracket[i] = BracketRecurse(splitInputBracket, i + 1);
+
+                        if (i != 0)
                         {
-                            splitInputBracket[i] = BracketRecurse(splitInputBracket,i+1);
-                            
-                            if (i != 0)
-                            {
-                                splitInputBracket[i-1]=String.Concat(splitInputBracket[i-1],splitInputBracket[i]);
-                                splitInputBracket.RemoveAt(i);
-                                    i--;
-
-                            }
-                            if (i != splitInputBracket.Count-1)
-                            { 
-                                splitInputBracket[i] = String.Concat(splitInputBracket[i], splitInputBracket[i+1]);
-                                splitInputBracket.RemoveAt(i+1);
-                            }
-                            
-
+                            splitInputBracket[i - 1] = String.Concat(splitInputBracket[i - 1], splitInputBracket[i]);
+                            splitInputBracket.RemoveAt(i);
+                            i--;
 
                         }
+                        if (i != splitInputBracket.Count - 1)
+                        {
+                            splitInputBracket[i] = String.Concat(splitInputBracket[i], splitInputBracket[i + 1]);
+                            splitInputBracket.RemoveAt(i + 1);
+                        }
+
+
+
                     }
+                }
                 if (splitInputBracket.Count != 0)
                 {
                     splitInputBracket[0] = DoMath(splitInputBracket[0]);
                 }
-               /*}
-                /catch (Exception ex)
-                /{
-                    if (splitInputBracket.Count != 0)
-                    {
-                        Console.WriteLine("Invalid input");
-                    }
-                }*/
+                /*}
+                 /catch (Exception ex)
+                 /{
+                     if (splitInputBracket.Count != 0)
+                     {
+                         Console.WriteLine("Invalid input");
+                     }
+                 }*/
 
                 if (splitInputBracket.Count != 0)
                 {
@@ -384,12 +433,12 @@ namespace BadCalc
                 }
 
 
-
-
-
             }
+
         }
     }
+
+
     public class program
     {
         public static void Main(String[] args)
@@ -400,3 +449,4 @@ namespace BadCalc
         }
     }
 }
+    
