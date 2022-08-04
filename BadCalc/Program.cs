@@ -325,11 +325,16 @@ namespace BadCalc
                 char[] check = {'(','+','-','*','/','^' };
 
 
-                for (int i = 1; i < splitInputBracket.Count; i++)
+                for (int i = 1; i < splitInputBracket.Count-1; i++)
                 {
-                    if (splitInputBracket[i] == "(" && check.Any(splitInputBracket[i-1]))
+                    if (splitInputBracket[i] == "(" && !check.Contains(splitInputBracket[i-1][splitInputBracket[i-1].Length-1]))
                     {
                         splitInputBracket[i - 1] = String.Concat(splitInputBracket[i - 1], "*");
+
+                    }
+                    if (splitInputBracket[i] == ")" && !check.Contains(splitInputBracket[i + 1][0]))
+                    {
+                        splitInputBracket[i + 1] = String.Concat("*", splitInputBracket[i + 1]);
 
                     }
                 }

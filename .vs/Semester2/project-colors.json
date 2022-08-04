@@ -30,7 +30,17 @@
       "ProjectGuid": "a799f7e6-f40b-4420-bb00-de1ada636ca1",
       "DisplayName": "BracketTest",
       "ColorIndex": 4
+    },
+    "76d8d22f-918e-4ad4-b63d-9ac5219c68da": {
+      "ProjectGuid": "76d8d22f-918e-4ad4-b63d-9ac5219c68da",
+      "DisplayName": "Guitest",
+      "ColorIndex": 5
+    },
+    "9e1e5d94-8602-417c-be8c-446ed33e028b": {
+      "ProjectGuid": "9e1e5d94-8602-417c-be8c-446ed33e028b",
+      "DisplayName": "intTest",
+      "ColorIndex": 6
     }
   },
-  "NextColorIndex": 5
+  "NextColorIndex": 7
 }
