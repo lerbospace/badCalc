@@ -9,7 +9,7 @@ public class program
 {
     public static void Main(String[] args)
     {
-
+        string[] libraryArray = File.ReadAllLines(@"C:\Users\azzhu\Documents\programming\c#\StrangeLibrary\strangeLibrary.in");
         for (; ; )
         {
             try
@@ -17,6 +17,7 @@ public class program
                 
                 Console.Write("> ");
                 string input = Console.ReadLine();
+                input = input.Trim();
                 if (input.ToLower().Contains("q"))
                 {
                     Console.WriteLine("Exiting Program");
@@ -28,7 +29,7 @@ public class program
                     Console.WriteLine("Error: that does not appear to be a valid book ID!\nPlease enter another book ID.");
                     continue;
                 }
-                string[] libraryArray = File.ReadAllLines(@"C:\Users\azzhu\Documents\programming\c#\StrangeLibrary\strangeLibrary.in");
+                
                 string find = Array.Find(libraryArray, index => index.StartsWith(input));
                 if (find == null)
                 {

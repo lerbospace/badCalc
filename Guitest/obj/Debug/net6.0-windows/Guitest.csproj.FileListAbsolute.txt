@@ -15,3 +15,4 @@ C:\Users\azzhu\Documents\programming\c#\Guitest\obj\Debug\net6.0-windows\Guitest
 C:\Users\azzhu\Documents\programming\c#\Guitest\obj\Debug\net6.0-windows\ref\Guitest.dll
 C:\Users\azzhu\Documents\programming\c#\Guitest\obj\Debug\net6.0-windows\Guitest.pdb
 C:\Users\azzhu\Documents\programming\c#\Guitest\obj\Debug\net6.0-windows\Guitest.genruntimeconfig.cache
+C:\Users\azzhu\Documents\programming\c#\Guitest\obj\Debug\net6.0-windows\WindowsFormsApplication1.MyForm.resources

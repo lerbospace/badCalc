@@ -356,14 +356,7 @@ namespace BadCalc
                     {
                         splitInputBracket[i - 1] = String.Concat(String.Format("{0}", splitInputBracket[i - 1]), "*");
                         List<string> temp = splitInputBracket.ToList();
-                        if(temp != splitInputBracket)
-                        {
-                            Console.WriteLine("Not equall");
-                        }
-                        if (temp.Equals( splitInputBracket))
-                        {
-                            Console.WriteLine("equall");
-                        }
+                       
                         for (int ch = splitInputBracket[i - 1].Length - 2; ch > -1; ch--)
                         {
                             if (check.Contains(splitInputBracket[i - 1][ch]) )
@@ -383,7 +376,7 @@ namespace BadCalc
 
 
                         }
-                        if (temp != splitInputBracket)
+                        if (temp.Count != splitInputBracket.Count)
                         {
                             splitInputBracket = BracketRecurseNoMath(splitInputBracket, i + 1, 0);
                         }
