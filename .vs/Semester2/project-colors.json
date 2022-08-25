@@ -40,7 +40,52 @@
       "ProjectGuid": "9e1e5d94-8602-417c-be8c-446ed33e028b",
       "DisplayName": "intTest",
       "ColorIndex": 6
+    },
+    "c75079be-c5c4-4410-99c2-3afb45be73b2": {
+      "ProjectGuid": "c75079be-c5c4-4410-99c2-3afb45be73b2",
+      "DisplayName": "GuiButton",
+      "ColorIndex": 7
+    },
+    "5c16338d-6a88-4e1c-95fc-546d4c7aed23": {
+      "ProjectGuid": "5c16338d-6a88-4e1c-95fc-546d4c7aed23",
+      "DisplayName": "UI3",
+      "ColorIndex": 8
+    },
+    "038c12d4-de79-4400-a2e5-a1c0beb6aef3": {
+      "ProjectGuid": "038c12d4-de79-4400-a2e5-a1c0beb6aef3",
+      "DisplayName": "UnitCinverter",
+      "ColorIndex": 9
+    },
+    "a764a66b-5035-47ce-b584-2ada55c91996": {
+      "ProjectGuid": "a764a66b-5035-47ce-b584-2ada55c91996",
+      "DisplayName": "reminder",
+      "ColorIndex": 10
+    },
+    "1c67b7d2-4aa7-45ef-bf88-1fcc1cd88c0c": {
+      "ProjectGuid": "1c67b7d2-4aa7-45ef-bf88-1fcc1cd88c0c",
+      "DisplayName": "RacingGame",
+      "ColorIndex": 11
+    },
+    "6917e8f2-f967-4719-8bf1-f8c4fbc0492f": {
+      "ProjectGuid": "6917e8f2-f967-4719-8bf1-f8c4fbc0492f",
+      "DisplayName": "RacinConsole",
+      "ColorIndex": 12
+    },
+    "6d92acd7-bdbb-4977-842e-9264666f9322": {
+      "ProjectGuid": "6d92acd7-bdbb-4977-842e-9264666f9322",
+      "DisplayName": "CountryThing",
+      "ColorIndex": 13
+    },
+    "c292254c-443a-4c28-b5f2-3668086e4e9c": {
+      "ProjectGuid": "c292254c-443a-4c28-b5f2-3668086e4e9c",
+      "DisplayName": "MathTable",
+      "ColorIndex": 14
+    },
+    "3a9614d9-13af-4737-a37f-479e801652ba": {
+      "ProjectGuid": "3a9614d9-13af-4737-a37f-479e801652ba",
+      "DisplayName": "CalcV2",
+      "ColorIndex": 15
     }
   },
-  "NextColorIndex": 7
+  "NextColorIndex": 0
 }

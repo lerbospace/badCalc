@@ -1,0 +1,15 @@
+C:\Users\azzhu\Documents\programming\c#\RacinConsole\bin\Debug\net6.0\RacinConsole.exe
+C:\Users\azzhu\Documents\programming\c#\RacinConsole\bin\Debug\net6.0\RacinConsole.deps.json
+C:\Users\azzhu\Documents\programming\c#\RacinConsole\bin\Debug\net6.0\RacinConsole.runtimeconfig.json
+C:\Users\azzhu\Documents\programming\c#\RacinConsole\bin\Debug\net6.0\RacinConsole.dll
+C:\Users\azzhu\Documents\programming\c#\RacinConsole\bin\Debug\net6.0\ref\RacinConsole.dll
+C:\Users\azzhu\Documents\programming\c#\RacinConsole\bin\Debug\net6.0\RacinConsole.pdb
+C:\Users\azzhu\Documents\programming\c#\RacinConsole\obj\Debug\net6.0\RacinConsole.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\azzhu\Documents\programming\c#\RacinConsole\obj\Debug\net6.0\RacinConsole.AssemblyInfoInputs.cache
+C:\Users\azzhu\Documents\programming\c#\RacinConsole\obj\Debug\net6.0\RacinConsole.AssemblyInfo.cs
+C:\Users\azzhu\Documents\programming\c#\RacinConsole\obj\Debug\net6.0\RacinConsole.csproj.CoreCompileInputs.cache
+C:\Users\azzhu\Documents\programming\c#\RacinConsole\obj\Debug\net6.0\RacinConsole.dll
+C:\Users\azzhu\Documents\programming\c#\RacinConsole\obj\Debug\net6.0\ref\RacinConsole.dll
+C:\Users\azzhu\Documents\programming\c#\RacinConsole\obj\Debug\net6.0\RacinConsole.pdb
+C:\Users\azzhu\Documents\programming\c#\RacinConsole\obj\Debug\net6.0\RacinConsole.genruntimeconfig.cache
+C:\Users\azzhu\Documents\programming\c#\RacinConsole\obj\Debug\net6.0\RacinConsole.csproj.AssemblyReference.cache

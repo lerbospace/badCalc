@@ -1,0 +1,15 @@
+C:\Users\azzhu\Documents\programming\c#\CountryThing\bin\Debug\net6.0\CountryThing.exe
+C:\Users\azzhu\Documents\programming\c#\CountryThing\bin\Debug\net6.0\CountryThing.deps.json
+C:\Users\azzhu\Documents\programming\c#\CountryThing\bin\Debug\net6.0\CountryThing.runtimeconfig.json
+C:\Users\azzhu\Documents\programming\c#\CountryThing\bin\Debug\net6.0\CountryThing.dll
+C:\Users\azzhu\Documents\programming\c#\CountryThing\bin\Debug\net6.0\ref\CountryThing.dll
+C:\Users\azzhu\Documents\programming\c#\CountryThing\bin\Debug\net6.0\CountryThing.pdb
+C:\Users\azzhu\Documents\programming\c#\CountryThing\obj\Debug\net6.0\CountryThing.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\azzhu\Documents\programming\c#\CountryThing\obj\Debug\net6.0\CountryThing.AssemblyInfoInputs.cache
+C:\Users\azzhu\Documents\programming\c#\CountryThing\obj\Debug\net6.0\CountryThing.AssemblyInfo.cs
+C:\Users\azzhu\Documents\programming\c#\CountryThing\obj\Debug\net6.0\CountryThing.csproj.CoreCompileInputs.cache
+C:\Users\azzhu\Documents\programming\c#\CountryThing\obj\Debug\net6.0\CountryThing.dll
+C:\Users\azzhu\Documents\programming\c#\CountryThing\obj\Debug\net6.0\ref\CountryThing.dll
+C:\Users\azzhu\Documents\programming\c#\CountryThing\obj\Debug\net6.0\CountryThing.pdb
+C:\Users\azzhu\Documents\programming\c#\CountryThing\obj\Debug\net6.0\CountryThing.genruntimeconfig.cache
+C:\Users\azzhu\Documents\programming\c#\CountryThing\obj\Debug\net6.0\CountryThing.csproj.AssemblyReference.cache

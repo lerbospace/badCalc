@@ -341,12 +341,12 @@ namespace BadCalc
 
 
 
-                List<string> splitInputBracket = (Regex.Split(input, @"\s*([()])\s*")).ToList();
+                List<string> splitInputBracket = (Regex.Split(input, @"\s*([()=])\s*")).ToList();
                 splitInputBracket.RemoveAll(inputindex => string.IsNullOrWhiteSpace(inputindex));
                 char[] check = { '+', '-', '*', '/', '^' };
-                if (splitInputBracket[splitInputBracket.Count - 1][splitInputBracket[splitInputBracket.Count - 1].Length - 1] == '=')
+                if (splitInputBracket.Last() == "=")
                 {
-                    //to implement variables
+                    splitInputBracket.RemoveAt(splitInputBracket.Count - 1);
                 }
 
                 for (int i = 1; i < splitInputBracket.Count - 1; i++)

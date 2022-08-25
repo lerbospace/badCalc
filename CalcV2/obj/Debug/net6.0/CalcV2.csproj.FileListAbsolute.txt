@@ -1,0 +1,15 @@
+C:\Users\azzhu\Documents\programming\c#\CalcV2\obj\Debug\net6.0\CalcV2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\azzhu\Documents\programming\c#\CalcV2\obj\Debug\net6.0\CalcV2.AssemblyInfoInputs.cache
+C:\Users\azzhu\Documents\programming\c#\CalcV2\obj\Debug\net6.0\CalcV2.AssemblyInfo.cs
+C:\Users\azzhu\Documents\programming\c#\CalcV2\obj\Debug\net6.0\CalcV2.csproj.CoreCompileInputs.cache
+C:\Users\azzhu\Documents\programming\c#\CalcV2\bin\Debug\net6.0\CalcV2.exe
+C:\Users\azzhu\Documents\programming\c#\CalcV2\bin\Debug\net6.0\CalcV2.deps.json
+C:\Users\azzhu\Documents\programming\c#\CalcV2\bin\Debug\net6.0\CalcV2.runtimeconfig.json
+C:\Users\azzhu\Documents\programming\c#\CalcV2\bin\Debug\net6.0\CalcV2.dll
+C:\Users\azzhu\Documents\programming\c#\CalcV2\bin\Debug\net6.0\ref\CalcV2.dll
+C:\Users\azzhu\Documents\programming\c#\CalcV2\bin\Debug\net6.0\CalcV2.pdb
+C:\Users\azzhu\Documents\programming\c#\CalcV2\obj\Debug\net6.0\CalcV2.dll
+C:\Users\azzhu\Documents\programming\c#\CalcV2\obj\Debug\net6.0\ref\CalcV2.dll
+C:\Users\azzhu\Documents\programming\c#\CalcV2\obj\Debug\net6.0\CalcV2.pdb
+C:\Users\azzhu\Documents\programming\c#\CalcV2\obj\Debug\net6.0\CalcV2.genruntimeconfig.cache
+C:\Users\azzhu\Documents\programming\c#\CalcV2\obj\Debug\net6.0\CalcV2.csproj.AssemblyReference.cache

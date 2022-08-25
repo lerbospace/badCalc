@@ -1,0 +1,17 @@
+C:\Users\azzhu\Documents\programming\c#\UnitCinverter\bin\Debug\net6.0-windows\UnitCinverter.exe
+C:\Users\azzhu\Documents\programming\c#\UnitCinverter\bin\Debug\net6.0-windows\UnitCinverter.deps.json
+C:\Users\azzhu\Documents\programming\c#\UnitCinverter\bin\Debug\net6.0-windows\UnitCinverter.runtimeconfig.json
+C:\Users\azzhu\Documents\programming\c#\UnitCinverter\bin\Debug\net6.0-windows\UnitCinverter.dll
+C:\Users\azzhu\Documents\programming\c#\UnitCinverter\bin\Debug\net6.0-windows\ref\UnitCinverter.dll
+C:\Users\azzhu\Documents\programming\c#\UnitCinverter\bin\Debug\net6.0-windows\UnitCinverter.pdb
+C:\Users\azzhu\Documents\programming\c#\UnitCinverter\obj\Debug\net6.0-windows\UnitCinverter.csproj.AssemblyReference.cache
+C:\Users\azzhu\Documents\programming\c#\UnitCinverter\obj\Debug\net6.0-windows\UnitCinverter.Form1.resources
+C:\Users\azzhu\Documents\programming\c#\UnitCinverter\obj\Debug\net6.0-windows\UnitCinverter.csproj.GenerateResource.cache
+C:\Users\azzhu\Documents\programming\c#\UnitCinverter\obj\Debug\net6.0-windows\UnitCinverter.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\azzhu\Documents\programming\c#\UnitCinverter\obj\Debug\net6.0-windows\UnitCinverter.AssemblyInfoInputs.cache
+C:\Users\azzhu\Documents\programming\c#\UnitCinverter\obj\Debug\net6.0-windows\UnitCinverter.AssemblyInfo.cs
+C:\Users\azzhu\Documents\programming\c#\UnitCinverter\obj\Debug\net6.0-windows\UnitCinverter.csproj.CoreCompileInputs.cache
+C:\Users\azzhu\Documents\programming\c#\UnitCinverter\obj\Debug\net6.0-windows\UnitCinverter.dll
+C:\Users\azzhu\Documents\programming\c#\UnitCinverter\obj\Debug\net6.0-windows\ref\UnitCinverter.dll
+C:\Users\azzhu\Documents\programming\c#\UnitCinverter\obj\Debug\net6.0-windows\UnitCinverter.pdb
+C:\Users\azzhu\Documents\programming\c#\UnitCinverter\obj\Debug\net6.0-windows\UnitCinverter.genruntimeconfig.cache

@@ -1,0 +1,15 @@
+C:\Users\azzhu\Documents\programming\c#\MathTable\bin\Debug\net6.0\MathTable.exe
+C:\Users\azzhu\Documents\programming\c#\MathTable\bin\Debug\net6.0\MathTable.deps.json
+C:\Users\azzhu\Documents\programming\c#\MathTable\bin\Debug\net6.0\MathTable.runtimeconfig.json
+C:\Users\azzhu\Documents\programming\c#\MathTable\bin\Debug\net6.0\MathTable.dll
+C:\Users\azzhu\Documents\programming\c#\MathTable\bin\Debug\net6.0\ref\MathTable.dll
+C:\Users\azzhu\Documents\programming\c#\MathTable\bin\Debug\net6.0\MathTable.pdb
+C:\Users\azzhu\Documents\programming\c#\MathTable\obj\Debug\net6.0\MathTable.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\azzhu\Documents\programming\c#\MathTable\obj\Debug\net6.0\MathTable.AssemblyInfoInputs.cache
+C:\Users\azzhu\Documents\programming\c#\MathTable\obj\Debug\net6.0\MathTable.AssemblyInfo.cs
+C:\Users\azzhu\Documents\programming\c#\MathTable\obj\Debug\net6.0\MathTable.csproj.CoreCompileInputs.cache
+C:\Users\azzhu\Documents\programming\c#\MathTable\obj\Debug\net6.0\MathTable.dll
+C:\Users\azzhu\Documents\programming\c#\MathTable\obj\Debug\net6.0\ref\MathTable.dll
+C:\Users\azzhu\Documents\programming\c#\MathTable\obj\Debug\net6.0\MathTable.pdb
+C:\Users\azzhu\Documents\programming\c#\MathTable\obj\Debug\net6.0\MathTable.genruntimeconfig.cache
+C:\Users\azzhu\Documents\programming\c#\MathTable\obj\Debug\net6.0\MathTable.csproj.AssemblyReference.cache
