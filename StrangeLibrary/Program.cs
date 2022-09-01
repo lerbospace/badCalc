@@ -9,6 +9,14 @@ public class program
 {
     public static void Main(String[] args)
     {
+        Romance romance;
+        Horror horror;
+        NonFiction nonFiction;
+        Classic classic;
+        Fantasy fantasy;
+        Cooking cooking;
+
+        Dictionary<string,Book> books = new Dictionary<string,Book> { };
         string[] libraryArray = File.ReadAllLines(@"C:\Users\azzhu\Documents\programming\c#\StrangeLibrary\strangeLibrary.in");
         for (; ; )
         {
@@ -29,6 +37,8 @@ public class program
                     Console.WriteLine("Error: that does not appear to be a valid book ID!\nPlease enter another book ID.");
                     continue;
                 }
+
+                
                 
                 string find = Array.Find(libraryArray, index => index.StartsWith(input));
                 if (find == null)
@@ -37,46 +47,59 @@ public class program
                     continue;
 
                 }
+
+                
                 string[] splitinput = find.Split(',');
+                if (books.ContainsKey(splitinput[0]))
+                {
+                    books[splitinput[0]].Display();
+                    books[splitinput[0]].DisplayExtra();
+                    continue;
+                }
                 if (input == splitinput[0])
                 {
                     switch (splitinput[3])
                     {
                         case "Romance":
-                            Romance romance = new Romance(splitinput[0], splitinput[1], splitinput[2], splitinput[3], splitinput[4]);
+                            romance = new Romance(splitinput[0], splitinput[1], splitinput[2], splitinput[3], splitinput[4]);
                             romance.Display();
                             romance.DisplayExtra();
+                            books.Add(input,romance);
 
                             break;
                         case "Horror":
-                            Horror horror = new Horror(splitinput[0], splitinput[1], splitinput[2], splitinput[3], splitinput[4]);
+                            horror = new Horror(splitinput[0], splitinput[1], splitinput[2], splitinput[3], splitinput[4]);
                             horror.Display();
                             horror.DisplayExtra();
+                            books.Add(input, horror);
 
                             break;
                         case "Non-fiction":
-                            NonFiction nonFiction = new NonFiction(splitinput[0], splitinput[1], splitinput[2], splitinput[3], splitinput[4]);
+                            nonFiction = new NonFiction(splitinput[0], splitinput[1], splitinput[2], splitinput[3], splitinput[4]);
                             nonFiction.Display();
                             nonFiction.DisplayExtra();
+                            books.Add(input, nonFiction);
 
                             break;
                         case "Classic":
-                            Classic classic = new Classic(splitinput[0], splitinput[1], splitinput[2], splitinput[3], splitinput[4]);
+                            classic = new Classic(splitinput[0], splitinput[1], splitinput[2], splitinput[3], splitinput[4]);
                             classic.Display();
                             classic.DisplayExtra();
+                            books.Add(input, classic);
 
                             break;
                         case "Fantasy":
-                            Fantasy fantasy = new Fantasy(splitinput[0], splitinput[1], splitinput[2], splitinput[3], splitinput[4]);
+                            fantasy = new Fantasy(splitinput[0], splitinput[1], splitinput[2], splitinput[3], splitinput[4]);
                             fantasy.Display();
                             fantasy.DisplayExtra();
-
+                            books.Add(input, fantasy);
 
                             break;
                         case "Cooking":
-                            Cooking cooking = new Cooking(splitinput[0], splitinput[1], splitinput[2], splitinput[3], splitinput[4]);
+                            cooking = new Cooking(splitinput[0], splitinput[1], splitinput[2], splitinput[3], splitinput[4]);
                             cooking.Display();
                             cooking.DisplayExtra();
+                            books.Add(input, cooking);
 
                             break;
 
@@ -84,7 +107,7 @@ public class program
 
                     }
 
-
+                    
 
                 }
             }
