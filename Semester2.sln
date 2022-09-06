@@ -49,9 +49,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RacinConsole", "RacinConsol
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CountryThing", "CountryThing\CountryThing.csproj", "{6D92ACD7-BDBB-4977-842E-9264666F9322}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathTable", "MathTable\MathTable.csproj", "{C292254C-443A-4C28-B5F2-3668086E4E9C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MathTable", "MathTable\MathTable.csproj", "{C292254C-443A-4C28-B5F2-3668086E4E9C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalcV2", "CalcV2\CalcV2.csproj", "{3A9614D9-13AF-4737-A37F-479E801652BA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalcV2", "CalcV2\CalcV2.csproj", "{3A9614D9-13AF-4737-A37F-479E801652BA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WinFormsApp1", "WinFormsApp1\WinFormsApp1.csproj", "{C6AA5732-A771-497A-9489-56B2808C1D39}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ParticleSim", "ParticleSim\ParticleSim.csproj", "{DAEBEF2A-4442-4B8F-BC28-9726754D2180}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParticleTest", "ParticleTest\ParticleTest.csproj", "{3EC53987-00BF-452C-AF72-B46E43D24660}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -159,6 +165,18 @@ Global
 		{3A9614D9-13AF-4737-A37F-479E801652BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A9614D9-13AF-4737-A37F-479E801652BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3A9614D9-13AF-4737-A37F-479E801652BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6AA5732-A771-497A-9489-56B2808C1D39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6AA5732-A771-497A-9489-56B2808C1D39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6AA5732-A771-497A-9489-56B2808C1D39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6AA5732-A771-497A-9489-56B2808C1D39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAEBEF2A-4442-4B8F-BC28-9726754D2180}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAEBEF2A-4442-4B8F-BC28-9726754D2180}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAEBEF2A-4442-4B8F-BC28-9726754D2180}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAEBEF2A-4442-4B8F-BC28-9726754D2180}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EC53987-00BF-452C-AF72-B46E43D24660}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EC53987-00BF-452C-AF72-B46E43D24660}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EC53987-00BF-452C-AF72-B46E43D24660}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EC53987-00BF-452C-AF72-B46E43D24660}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

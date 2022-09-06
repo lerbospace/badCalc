@@ -1,0 +1,15 @@
+C:\Users\azzhu\Documents\programming\c#\ParticleSim\bin\Debug\net6.0\ParticleSim.exe
+C:\Users\azzhu\Documents\programming\c#\ParticleSim\bin\Debug\net6.0\ParticleSim.deps.json
+C:\Users\azzhu\Documents\programming\c#\ParticleSim\bin\Debug\net6.0\ParticleSim.runtimeconfig.json
+C:\Users\azzhu\Documents\programming\c#\ParticleSim\bin\Debug\net6.0\ParticleSim.dll
+C:\Users\azzhu\Documents\programming\c#\ParticleSim\bin\Debug\net6.0\ref\ParticleSim.dll
+C:\Users\azzhu\Documents\programming\c#\ParticleSim\bin\Debug\net6.0\ParticleSim.pdb
+C:\Users\azzhu\Documents\programming\c#\ParticleSim\obj\Debug\net6.0\ParticleSim.csproj.AssemblyReference.cache
+C:\Users\azzhu\Documents\programming\c#\ParticleSim\obj\Debug\net6.0\ParticleSim.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\azzhu\Documents\programming\c#\ParticleSim\obj\Debug\net6.0\ParticleSim.AssemblyInfoInputs.cache
+C:\Users\azzhu\Documents\programming\c#\ParticleSim\obj\Debug\net6.0\ParticleSim.AssemblyInfo.cs
+C:\Users\azzhu\Documents\programming\c#\ParticleSim\obj\Debug\net6.0\ParticleSim.csproj.CoreCompileInputs.cache
+C:\Users\azzhu\Documents\programming\c#\ParticleSim\obj\Debug\net6.0\ParticleSim.dll
+C:\Users\azzhu\Documents\programming\c#\ParticleSim\obj\Debug\net6.0\ref\ParticleSim.dll
+C:\Users\azzhu\Documents\programming\c#\ParticleSim\obj\Debug\net6.0\ParticleSim.pdb
+C:\Users\azzhu\Documents\programming\c#\ParticleSim\obj\Debug\net6.0\ParticleSim.genruntimeconfig.cache

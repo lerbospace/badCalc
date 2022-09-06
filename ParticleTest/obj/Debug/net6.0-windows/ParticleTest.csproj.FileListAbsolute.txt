@@ -1,0 +1,17 @@
+C:\Users\azzhu\Documents\programming\c#\ParticleTest\obj\Debug\net6.0-windows\ParticleTest.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\azzhu\Documents\programming\c#\ParticleTest\obj\Debug\net6.0-windows\ParticleTest.AssemblyInfoInputs.cache
+C:\Users\azzhu\Documents\programming\c#\ParticleTest\obj\Debug\net6.0-windows\ParticleTest.AssemblyInfo.cs
+C:\Users\azzhu\Documents\programming\c#\ParticleTest\obj\Debug\net6.0-windows\ParticleTest.csproj.CoreCompileInputs.cache
+C:\Users\azzhu\Documents\programming\c#\ParticleTest\bin\Debug\net6.0-windows\ParticleTest.exe
+C:\Users\azzhu\Documents\programming\c#\ParticleTest\bin\Debug\net6.0-windows\ParticleTest.deps.json
+C:\Users\azzhu\Documents\programming\c#\ParticleTest\bin\Debug\net6.0-windows\ParticleTest.runtimeconfig.json
+C:\Users\azzhu\Documents\programming\c#\ParticleTest\bin\Debug\net6.0-windows\ParticleTest.dll
+C:\Users\azzhu\Documents\programming\c#\ParticleTest\bin\Debug\net6.0-windows\ref\ParticleTest.dll
+C:\Users\azzhu\Documents\programming\c#\ParticleTest\bin\Debug\net6.0-windows\ParticleTest.pdb
+C:\Users\azzhu\Documents\programming\c#\ParticleTest\obj\Debug\net6.0-windows\ParticleTest.Canvas.resources
+C:\Users\azzhu\Documents\programming\c#\ParticleTest\obj\Debug\net6.0-windows\ParticleTest.csproj.GenerateResource.cache
+C:\Users\azzhu\Documents\programming\c#\ParticleTest\obj\Debug\net6.0-windows\ParticleTest.dll
+C:\Users\azzhu\Documents\programming\c#\ParticleTest\obj\Debug\net6.0-windows\ref\ParticleTest.dll
+C:\Users\azzhu\Documents\programming\c#\ParticleTest\obj\Debug\net6.0-windows\ParticleTest.pdb
+C:\Users\azzhu\Documents\programming\c#\ParticleTest\obj\Debug\net6.0-windows\ParticleTest.genruntimeconfig.cache
+C:\Users\azzhu\Documents\programming\c#\ParticleTest\obj\Debug\net6.0-windows\ParticleTest.csproj.AssemblyReference.cache
