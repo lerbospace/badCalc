@@ -39,10 +39,10 @@ namespace ParticleTest
         public ParticleStuff()
         {
             
-            yellow = Create(150, Color.Yellow);
-            red  = Create(150, Color.Red);
-            green = Create(150, Color.Green);
-            blue = Create(150, Color.Blue);
+            yellow = Create(100, Color.Yellow);
+            red  = Create(100, Color.Red);
+            green = Create(100, Color.Green);
+            blue = Create(100, Color.Blue);
 
             rr = RandomGravity();
             ry = RandomGravity();
@@ -95,7 +95,7 @@ namespace ParticleTest
 
 
             //Loop through first group of points
-            for (int i = 0; i < Group1.Count; i++)
+            for (int i = 0; i <Group1.Count; i++)
             {
                 Particle p1 = Group1[i];
                 //Force acting on particle
@@ -104,7 +104,7 @@ namespace ParticleTest
                 double dx = 0;
                 double dy = 0;
                 //Loop through second group of points
-                for (int j = 0; j < Group2.Count; j++)
+                for (int j = Group2.Count-1; j > 0; j--)
                 {
                     Particle p2 = Group2[j];
                     //Calculate the ddistance between points using Pythagorean theorem
@@ -113,17 +113,17 @@ namespace ParticleTest
                     double r = Math.Sqrt(dx * dx + dy * dy);
 
                     //Calculate the force in given bounds. 
-                    if (r > 0 && r < 80)
+                    if (r > 0.01f && r< 80)
                     {
-                        double F = (g * 1) / r;
+                        double F = (g * 1) / Math.Pow(r,2);
                         fx += dx * F;
                         fy += dy * F;
                     }
                 }
 
                 //Calculate new velocity
-                p1.vx = (p1.vx + fx) * 0.9;
-                p1.vy = (p1.vx + fy) * 0.9;
+                p1.vx = (p1.vx + fx) *0.5;
+                p1.vy = (p1.vx + fy) *0.5;
                 if (Math.Abs(p1.vx) > 200 || Math.Abs(p1.vy) > 200)
                 {
                     dy = dy+0;
@@ -131,6 +131,9 @@ namespace ParticleTest
                     p1.colour = Color.Violet;
                 }
                 //Update position based on velocity
+               
+                
+                
                 p1.x += p1.vx;
                 p1.y += p1.vy;
 
@@ -138,9 +141,9 @@ namespace ParticleTest
                 //Checking for canvas bounds
                
                     if (p1.x < 0) { p1.vx *= -1; p1.x = 0; };
-                    if (p1.x > 500) { p1.vx *= -1; p1.x = 500; };
+                   if (p1.x > 1000) { p1.vx *= -1; p1.x = 1000; };
                     if (p1.y < 0) { p1.vy *= -1; p1.y = 0; };
-                    if (p1.y > 500) { p1.vy *= -1; p1.y = 500; };
+                    if (p1.y > 1000) { p1.vy *= -1; p1.y = 1000; };
                
 
                 Group1[i] = p1;
@@ -155,28 +158,31 @@ namespace ParticleTest
             List<Particle> tempYellow = yellow.ToList();
             List<Particle> tempGreen = green.ToList();
             List<Particle> tempBlue = blue.ToList();
-            //Red
-            Rule(ref red, ref tempRed, rr);           
-            Rule(ref red, ref tempYellow, ry);
-            Rule(ref red, ref tempGreen, rg);
-            Rule(ref red, ref tempBlue, rb);
-            //Yellow
-            Rule(ref yellow, ref tempRed,yr);
-            Rule(ref yellow, ref tempYellow, yy);
-            Rule(ref yellow, ref tempGreen, yg);
-            Rule(ref yellow, ref tempBlue, yb);
-            
+
             //Green
             Rule(ref green, ref red, gr);
             Rule(ref green, ref tempYellow, gy);
             Rule(ref green, ref tempGreen, gg);
             Rule(ref green, ref tempBlue, gb);
+           
+
+         
             //Blue
             Rule(ref blue, ref red, br);
             Rule(ref blue, ref tempYellow, by);
             Rule(ref blue, ref tempGreen, bg);
             Rule(ref blue, ref tempBlue, bb);
+            //Yellow
+            Rule(ref yellow, ref tempRed, yr);
+            Rule(ref yellow, ref tempYellow, yy);
+            Rule(ref yellow, ref tempGreen, yg);
+            Rule(ref yellow, ref tempBlue, yb);
 
+            //Red
+            Rule(ref red, ref tempRed, rr);
+            Rule(ref red, ref tempYellow, ry);
+            Rule(ref red, ref tempGreen, rg);
+            Rule(ref red, ref tempBlue, rb);
 
 
 
@@ -230,7 +236,7 @@ namespace ParticleTest
 
         int Random()
         {
-            return random.Next(0, 450);
+            return random.Next(0, 1000);
         }
 
         float RandomGravity()
