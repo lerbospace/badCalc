@@ -100,7 +100,17 @@
       "ProjectGuid": "3ec53987-00bf-452c-af72-b46e43d24660",
       "DisplayName": "ParticleTest",
       "ColorIndex": 2
+    },
+    "04740ccf-60fc-450c-a151-4d957487bad1": {
+      "ProjectGuid": "04740ccf-60fc-450c-a151-4d957487bad1",
+      "DisplayName": "ListTest",
+      "ColorIndex": 3
+    },
+    "694addb8-3e6e-4327-99c2-8da1b741d0df": {
+      "ProjectGuid": "694addb8-3e6e-4327-99c2-8da1b741d0df",
+      "DisplayName": "Charles Table",
+      "ColorIndex": 4
     }
   },
-  "NextColorIndex": 3
+  "NextColorIndex": 5
 }

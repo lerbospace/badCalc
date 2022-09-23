@@ -57,7 +57,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WinFormsApp1", "WinFormsApp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ParticleSim", "ParticleSim\ParticleSim.csproj", "{DAEBEF2A-4442-4B8F-BC28-9726754D2180}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParticleTest", "ParticleTest\ParticleTest.csproj", "{3EC53987-00BF-452C-AF72-B46E43D24660}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ParticleTest", "ParticleTest\ParticleTest.csproj", "{3EC53987-00BF-452C-AF72-B46E43D24660}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ListTest", "ListTest\ListTest.csproj", "{04740CCF-60FC-450C-A151-4D957487BAD1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Charles Table", "Charles Table\Charles Table.csproj", "{694ADDB8-3E6E-4327-99C2-8DA1B741D0DF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -177,6 +181,14 @@ Global
 		{3EC53987-00BF-452C-AF72-B46E43D24660}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3EC53987-00BF-452C-AF72-B46E43D24660}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3EC53987-00BF-452C-AF72-B46E43D24660}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04740CCF-60FC-450C-A151-4D957487BAD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04740CCF-60FC-450C-A151-4D957487BAD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04740CCF-60FC-450C-A151-4D957487BAD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04740CCF-60FC-450C-A151-4D957487BAD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{694ADDB8-3E6E-4327-99C2-8DA1B741D0DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{694ADDB8-3E6E-4327-99C2-8DA1B741D0DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{694ADDB8-3E6E-4327-99C2-8DA1B741D0DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{694ADDB8-3E6E-4327-99C2-8DA1B741D0DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -9,6 +9,7 @@ namespace ParticleTest
     internal class ParticleStuff
     {
         Random random = new Random();
+        List<Particle> particles = new List<Particle>();
         List<Particle> yellow;
         List<Particle> red;
         List<Particle> green;
@@ -115,7 +116,7 @@ namespace ParticleTest
                     //Calculate the force in given bounds. 
                     if (r > 0.01f && r< 80)
                     {
-                        double F = (g * 1) / Math.Pow(r,2);
+                        double F = (g * 1) /r;
                         fx += dx * F;
                         fy += dy * F;
                     }
@@ -196,10 +197,10 @@ namespace ParticleTest
             //MessageBox.Show("here");
             //p.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid;
             
-            for (int i = 0; i < yellow.Count; i++)
+            for (int i = 0; i < particles.Count; i++)
             {
-                p.Color = yellow[i].colour;
-                e.Graphics.DrawEllipse(p, (int)yellow[i].x, (int)yellow[i].y, 1, 1);
+                p.Color = particles[i].colour;
+                e.Graphics.DrawEllipse(p, (int)particles[i].x, (int)particles[i].y, 1, 1);
             }
             //p.Color = red[0].colour;
             for (int i = 0; i < red.Count; i++)
@@ -226,8 +227,9 @@ namespace ParticleTest
             List<Particle> group = new List<Particle>();
             for (int i = 0; i < number; i++)
             {
-                
-                group.Add(new Particle(Random(), Random(), colour));
+                Particle temp = new Particle(Random(), Random(), colour);
+                group.Add(temp);
+                particles.Add(temp);
                 
                 //particles.Add(group[i]);
             }

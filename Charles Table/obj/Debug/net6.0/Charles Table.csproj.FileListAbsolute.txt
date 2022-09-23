@@ -1,0 +1,15 @@
+C:\Users\azzhu\Documents\programming\c#\Charles Table\bin\Debug\net6.0\Charles Table.exe
+C:\Users\azzhu\Documents\programming\c#\Charles Table\bin\Debug\net6.0\Charles Table.deps.json
+C:\Users\azzhu\Documents\programming\c#\Charles Table\bin\Debug\net6.0\Charles Table.runtimeconfig.json
+C:\Users\azzhu\Documents\programming\c#\Charles Table\bin\Debug\net6.0\Charles Table.dll
+C:\Users\azzhu\Documents\programming\c#\Charles Table\bin\Debug\net6.0\ref\Charles Table.dll
+C:\Users\azzhu\Documents\programming\c#\Charles Table\bin\Debug\net6.0\Charles Table.pdb
+C:\Users\azzhu\Documents\programming\c#\Charles Table\obj\Debug\net6.0\Charles Table.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\azzhu\Documents\programming\c#\Charles Table\obj\Debug\net6.0\Charles Table.AssemblyInfoInputs.cache
+C:\Users\azzhu\Documents\programming\c#\Charles Table\obj\Debug\net6.0\Charles Table.AssemblyInfo.cs
+C:\Users\azzhu\Documents\programming\c#\Charles Table\obj\Debug\net6.0\Charles Table.csproj.CoreCompileInputs.cache
+C:\Users\azzhu\Documents\programming\c#\Charles Table\obj\Debug\net6.0\Charles Table.dll
+C:\Users\azzhu\Documents\programming\c#\Charles Table\obj\Debug\net6.0\ref\Charles Table.dll
+C:\Users\azzhu\Documents\programming\c#\Charles Table\obj\Debug\net6.0\Charles Table.pdb
+C:\Users\azzhu\Documents\programming\c#\Charles Table\obj\Debug\net6.0\Charles Table.genruntimeconfig.cache
+C:\Users\azzhu\Documents\programming\c#\Charles Table\obj\Debug\net6.0\Charles Table.csproj.AssemblyReference.cache
