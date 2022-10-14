@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\azzhu\\Documents\\programming\\c#\\BadCalc\\BadCalc.csproj",
+      "projectUniqueName": "C:\\Users\\azzhu\\Documents\\programming\\c#\\school\\BadCalc\\BadCalc.csproj",
       "projectName": "BadCalc",
-      "projectPath": "C:\\Users\\azzhu\\Documents\\programming\\c#\\BadCalc\\BadCalc.csproj",
+      "projectPath": "C:\\Users\\azzhu\\Documents\\programming\\c#\\school\\BadCalc\\BadCalc.csproj",
       "packagesPath": "C:\\Users\\azzhu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\azzhu\\Documents\\programming\\c#\\BadCalc\\obj\\",
+      "outputPath": "C:\\Users\\azzhu\\Documents\\programming\\c#\\school\\BadCalc\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

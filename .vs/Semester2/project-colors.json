@@ -110,7 +110,12 @@
       "ProjectGuid": "694addb8-3e6e-4327-99c2-8da1b741d0df",
       "DisplayName": "Charles Table",
       "ColorIndex": 4
+    },
+    "aab90ced-b4fd-46f7-af45-6e2a2e4fdc88": {
+      "ProjectGuid": "aab90ced-b4fd-46f7-af45-6e2a2e4fdc88",
+      "DisplayName": "GUICalc",
+      "ColorIndex": 5
     }
   },
-  "NextColorIndex": 5
+  "NextColorIndex": 6
 }

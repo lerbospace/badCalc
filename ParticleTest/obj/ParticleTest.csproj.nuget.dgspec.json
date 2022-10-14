@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\azzhu\\Documents\\programming\\c#\\ParticleTest\\ParticleTest.csproj": {}
+    "C:\\Users\\azzhu\\Documents\\programming\\c#\\school\\ParticleTest\\ParticleTest.csproj": {}
   },
   "projects": {
-    "C:\\Users\\azzhu\\Documents\\programming\\c#\\ParticleTest\\ParticleTest.csproj": {
+    "C:\\Users\\azzhu\\Documents\\programming\\c#\\school\\ParticleTest\\ParticleTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\azzhu\\Documents\\programming\\c#\\ParticleTest\\ParticleTest.csproj",
+        "projectUniqueName": "C:\\Users\\azzhu\\Documents\\programming\\c#\\school\\ParticleTest\\ParticleTest.csproj",
         "projectName": "ParticleTest",
-        "projectPath": "C:\\Users\\azzhu\\Documents\\programming\\c#\\ParticleTest\\ParticleTest.csproj",
+        "projectPath": "C:\\Users\\azzhu\\Documents\\programming\\c#\\school\\ParticleTest\\ParticleTest.csproj",
         "packagesPath": "C:\\Users\\azzhu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\azzhu\\Documents\\programming\\c#\\ParticleTest\\obj\\",
+        "outputPath": "C:\\Users\\azzhu\\Documents\\programming\\c#\\school\\ParticleTest\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

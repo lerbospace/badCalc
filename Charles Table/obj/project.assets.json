@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\azzhu\\Documents\\programming\\c#\\Charles Table\\Charles Table.csproj",
+      "projectUniqueName": "C:\\Users\\azzhu\\Documents\\programming\\c#\\school\\Charles Table\\Charles Table.csproj",
       "projectName": "Charles Table",
-      "projectPath": "C:\\Users\\azzhu\\Documents\\programming\\c#\\Charles Table\\Charles Table.csproj",
+      "projectPath": "C:\\Users\\azzhu\\Documents\\programming\\c#\\school\\Charles Table\\Charles Table.csproj",
       "packagesPath": "C:\\Users\\azzhu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\azzhu\\Documents\\programming\\c#\\Charles Table\\obj\\",
+      "outputPath": "C:\\Users\\azzhu\\Documents\\programming\\c#\\school\\Charles Table\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

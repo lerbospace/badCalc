@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\azzhu\\Documents\\programming\\c#\\intTest\\intTest.csproj",
+      "projectUniqueName": "C:\\Users\\azzhu\\Documents\\programming\\c#\\school\\intTest\\intTest.csproj",
       "projectName": "intTest",
-      "projectPath": "C:\\Users\\azzhu\\Documents\\programming\\c#\\intTest\\intTest.csproj",
+      "projectPath": "C:\\Users\\azzhu\\Documents\\programming\\c#\\school\\intTest\\intTest.csproj",
       "packagesPath": "C:\\Users\\azzhu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\azzhu\\Documents\\programming\\c#\\intTest\\obj\\",
+      "outputPath": "C:\\Users\\azzhu\\Documents\\programming\\c#\\school\\intTest\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
