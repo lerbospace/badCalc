@@ -3,45 +3,9 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.Linq;
 
-namespace CalcV2
+namespace GUICalc
 {
-    internal class Power
-    {
-        public double Do(float a, float b)
-        {
-            return Math.Pow(a, b);
-        }
-    }
-    internal class Divide
-    {
-        public float Do(float a, float b)
-        {
-            return a / b;
-        }
-    }
-    internal class Multiply
-    {
-        public float Do(float a, float b)
-        {
-            return a * b;
-        }
-    }
 
-    internal class Add
-    {
-        public float Do(float a, float b)
-        {
-            return a + b;
-        }
-    }
-
-    internal class Minus
-    {
-        public float Do(float a, float b)
-        {
-            return a - b;
-        }
-    }
     
     class program
     {
