@@ -8,28 +8,201 @@ namespace GUICalc
 {
     internal class Calculator
     {
-        
+
+        //Global checks
+        string[] opperand = new string[] { "+", "-", "*", "/", "^" };
+        string[] bracket = new string[] { "(", ")" };
+
         public Calculator()
         {
-           
+
         }
         public string Calculate(string ConsoleInput)
         {
+            //PreParse
             ConsoleInput = ConsoleInput.Replace('=', ' ');
-            List<string> splitInput = Regex.Split(ConsoleInput, @"\s*([=+-/*$])\s*").ToList();
+            List<string> splitInput = Regex.Split(ConsoleInput, @"\s*([-+/*^()])\s*").ToList();
             splitInput.RemoveAll(inputindex => string.IsNullOrWhiteSpace(inputindex));
 
-            splitInput = SimplifyPM(splitInput);
-            splitInput = SimplifyConsecutiveSign(splitInput);
+            
+            
+
+            bool brackets = false;
+            if (splitInput.Contains("(") | splitInput.Contains(")"))
+            {
+                brackets = true;
+            }
+
+            if (brackets == true)
+            {
+                EvaluateBrackets(splitInput);
+            }
+           
+            
 
             string result = EvaluateInput(splitInput);
             return result;
+        }
+
+        private void EvaluateBrackets(List<string> splitInput)
+        {
+            //Pre procces
+            splitInput = SimplifyPM(splitInput);
+            splitInput = SimplifyConsecutiveSign(splitInput);
+            splitInput = SimplifyImplicetMult(splitInput);
+            List<List<string>> splitBracket = SplitBrackets(splitInput);
+            splitInput = ParseBrackets(splitBracket);
+
+
+            //ParseBrackets(splitInput);
+        }
+
+        private List<string> SimplifyImplicetMult(List<string> implicetInput)
+        {
+            for(int i = 0; i < implicetInput.Count-1; i++)
+            {
+                if (!opperand.Contains(implicetInput[i]) & implicetInput[i]!= "(" & implicetInput[i+1] == "(")
+                {
+                    //32()
+                    implicetInput.Insert(i, "(");
+                    implicetInput.Insert(i + 2, "*");
+                    
+                    int open = 1;
+                    int close = 0;
+                    for(int j = i+3; j < implicetInput.Count; j++)
+                    {
+                        if (implicetInput[j] == "(")
+                        {
+                            open++;
+                        }
+                        if (implicetInput[j] == ")")
+                        {
+                            close++;
+                        }
+                        if (open == close + 1)
+                        {
+                            implicetInput.Insert(j+1,")");
+                        }
+                    }
+                    //(34*()
+                }
+            }
+
+            return implicetInput;
+        }
+        private List<string> ParseBrackets(List<List<string>> bracketSplit)
+        {
+          
+            for (int i = 0; i < bracketSplit.Count; i++)
+            {
+                for (int j = 0; j < bracketSplit[i].Count; j++)
+                {
+                    if (bracketSplit[i][j][0] == '+' || bracketSplit[i][j][0] == '-')
+                    {
+                        bracketSplit[i].Insert(j, "+");
+                        j++;
+                    }
+
+                }
+                if (!bracketSplit[i].Contains("(") || !bracketSplit[i].Contains(")"))
+                {
+                    if (bracketSplit[i].Count <= 2)
+                    {
+                        continue;
+                    }
+                    int start = 0;
+                    int end = bracketSplit[i].Count-1;
+                    if (opperand.Contains(bracketSplit[i][end]))
+                    {
+                        end--;
+                    }
+                    string done = EvaluateInput(bracketSplit[i].GetRange(start, end));
+
+                }
+                if (bracketSplit[i][0] == "(")
+                {
+                    int start = 1;
+                    int end = bracketSplit[i].Count-1;
+                    if (bracketSplit[i][end] == ")" || opperand.Contains(bracketSplit[i][end]))
+                    {
+                        end--;
+                    }
+                    bracketSplit[i][start] = EvaluateInput(bracketSplit[i].GetRange(start, end));
+                    if (bracketSplit[i][0] == "(" && bracketSplit[i][bracketSplit[i].Count-1] == ")")
+                    {
+                        bracketSplit[i].RemoveAt(0);
+                        bracketSplit[i].RemoveAt(bracketSplit[i].Count-1);
+                    }
+
+                }
+            }
+
+            List<string> combined = new List<string>();
+            foreach(List<string> index in bracketSplit)
+            {
+                combined.AddRange(index);
+            }
+
+            for(int i = 0; i < combined.Count; i++)
+            {
+                if (i !< combined.Count-2)  
+                {
+                    if (!(opperand.Contains(combined[i]) | bracket.Contains(combined[i])) && !(opperand.Contains(combined[i+1]) | bracket.Contains(combined[i+1])))
+                    {
+                        combined.Insert(i+1, "*");
+                        i++;
+                    }
+                    else if(!opperand.Contains(combined[i]) && combined[i+1] == "(")
+                    {
+                        combined.Insert(i+1, "*");
+                        i++;
+                    }
+
+                    else if (combined[i] == ")" && !opperand.Contains(combined[i+1]))
+                    {
+                        combined.Insert(i+1, "*");
+                        i++;
+                    }
+                }
+                
+            }
+            return combined;
+
+
+        }
+        private List<List<string>> SplitBrackets(List<string> splitInput)
+        {
+            List<List<string>> bracketSplit = new List<List<string>>();
+            bracketSplit.Add(new List<string>());
+            bracketSplit[0].Add(splitInput[0]);
+            for (int i = 1, j = 0; i < splitInput.Count; i++)
+            {
+
+                if (splitInput[i] == "(")
+                {
+                    bracketSplit.Add(new List<string>());
+                    j += 1;
+
+                }
+                bracketSplit[j].Add(splitInput[i]);
+                if (splitInput[i] == ")")
+                {
+                    bracketSplit.Add(new List<string>());
+                    j += 1;
+
+                }
+            }
+            bracketSplit.RemoveAll(inputindex => inputindex.Count == 0);
+            return bracketSplit;
+
         }
 
         private string EvaluateInput(List<string> input)
         {
             try
             {
+                input = SimplifyPM(input);
+                input = SimplifyConsecutiveSign(input);
                 input = ExpOrder(input);
                 input = MDOrder(input);
                 input = PMOrder(input);
@@ -54,7 +227,7 @@ namespace GUICalc
         {
             for (int i = 0; i < input.Count; i++)
             {
-                if (input[i] == "$")
+                if (input[i] == "^")
                 {
                     input[i] = Math.Pow(float.Parse(input[i - 1]), float.Parse(input[i + 1])).ToString();
                     input.RemoveAt(i - 1);
@@ -75,7 +248,7 @@ namespace GUICalc
                 switch (input[i])
                 {
                     case "*":
-                        input[i] = (float.Parse(input[i - 1])* float.Parse(input[i + 1])).ToString();
+                        input[i] = (float.Parse(input[i - 1]) * float.Parse(input[i + 1])).ToString();
                         input.RemoveAt(i - 1);
                         input.RemoveAt(i);
                         if (input.Count != 1)
@@ -84,7 +257,7 @@ namespace GUICalc
                         }
                         break;
                     case "/":
-                        input[i] = (float.Parse(input[i - 1])/ float.Parse(input[i + 1])).ToString();
+                        input[i] = (float.Parse(input[i - 1]) / float.Parse(input[i + 1])).ToString();
                         input.RemoveAt(i - 1);
                         input.RemoveAt(i);
                         if (input.Count != 1)
@@ -106,7 +279,7 @@ namespace GUICalc
                 switch (input[i])
                 {
                     case "+":
-                        input[i] = (float.Parse(input[i - 1])+ float.Parse(input[i + 1])).ToString();
+                        input[i] = (float.Parse(input[i - 1]) + float.Parse(input[i + 1])).ToString();
                         input.RemoveAt(i - 1);
                         input.RemoveAt(i);
                         if (input.Count != 1)
@@ -115,7 +288,7 @@ namespace GUICalc
                         }
                         break;
                     case "-":
-                        input[i] = (float.Parse(input[i - 1])- float.Parse(input[i + 1])).ToString();
+                        input[i] = (float.Parse(input[i - 1]) - float.Parse(input[i + 1])).ToString();
                         input.RemoveAt(i - 1);
                         input.RemoveAt(i);
                         if (input.Count != 1)

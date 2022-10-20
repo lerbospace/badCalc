@@ -1,0 +1,15 @@
+C:\Users\azzhu\Documents\programming\c#\school\GUICalc\bin\Debug\net6.0-windows\GUICalc.exe
+C:\Users\azzhu\Documents\programming\c#\school\GUICalc\bin\Debug\net6.0-windows\GUICalc.deps.json
+C:\Users\azzhu\Documents\programming\c#\school\GUICalc\bin\Debug\net6.0-windows\GUICalc.runtimeconfig.json
+C:\Users\azzhu\Documents\programming\c#\school\GUICalc\bin\Debug\net6.0-windows\GUICalc.dll
+C:\Users\azzhu\Documents\programming\c#\school\GUICalc\bin\Debug\net6.0-windows\ref\GUICalc.dll
+C:\Users\azzhu\Documents\programming\c#\school\GUICalc\bin\Debug\net6.0-windows\GUICalc.pdb
+C:\Users\azzhu\Documents\programming\c#\school\GUICalc\obj\Debug\net6.0-windows\GUICalc.csproj.AssemblyReference.cache
+C:\Users\azzhu\Documents\programming\c#\school\GUICalc\obj\Debug\net6.0-windows\GUICalc.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\azzhu\Documents\programming\c#\school\GUICalc\obj\Debug\net6.0-windows\GUICalc.AssemblyInfoInputs.cache
+C:\Users\azzhu\Documents\programming\c#\school\GUICalc\obj\Debug\net6.0-windows\GUICalc.AssemblyInfo.cs
+C:\Users\azzhu\Documents\programming\c#\school\GUICalc\obj\Debug\net6.0-windows\GUICalc.csproj.CoreCompileInputs.cache
+C:\Users\azzhu\Documents\programming\c#\school\GUICalc\obj\Debug\net6.0-windows\GUICalc.dll
+C:\Users\azzhu\Documents\programming\c#\school\GUICalc\obj\Debug\net6.0-windows\ref\GUICalc.dll
+C:\Users\azzhu\Documents\programming\c#\school\GUICalc\obj\Debug\net6.0-windows\GUICalc.pdb
+C:\Users\azzhu\Documents\programming\c#\school\GUICalc\obj\Debug\net6.0-windows\GUICalc.genruntimeconfig.cache
