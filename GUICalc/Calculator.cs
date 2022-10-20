@@ -25,26 +25,16 @@ namespace GUICalc
             splitInput.RemoveAll(inputindex => string.IsNullOrWhiteSpace(inputindex));
 
             
-            
-
-            bool brackets = false;
             if (splitInput.Contains("(") | splitInput.Contains(")"))
             {
-                brackets = true;
+                splitInput = EvaluateBrackets(splitInput);
             }
-
-            if (brackets == true)
-            {
-                EvaluateBrackets(splitInput);
-            }
-           
-            
 
             string result = EvaluateInput(splitInput);
             return result;
         }
 
-        private void EvaluateBrackets(List<string> splitInput)
+        private List<string> EvaluateBrackets(List<string> splitInput)
         {
             //Pre procces
             splitInput = SimplifyPM(splitInput);
@@ -52,6 +42,7 @@ namespace GUICalc
             splitInput = SimplifyImplicetMult(splitInput);
             List<List<string>> splitBracket = SplitBrackets(splitInput);
             splitInput = ParseBrackets(splitBracket);
+            return splitInput;
 
 
             //ParseBrackets(splitInput);
@@ -61,7 +52,7 @@ namespace GUICalc
         {
             for(int i = 0; i < implicetInput.Count-1; i++)
             {
-                if (!opperand.Contains(implicetInput[i]) & implicetInput[i]!= "(" & implicetInput[i+1] == "(")
+                if (!opperand.Contains(implicetInput[i]) & !bracket.Contains(implicetInput[i])  & implicetInput[i+1] == "(")
                 {
                     //32()
                     implicetInput.Insert(i, "(");
@@ -86,88 +77,68 @@ namespace GUICalc
                     }
                     //(34*()
                 }
+
+                if(implicetInput[i] == ")" & !opperand.Contains(implicetInput[i+1]) & !bracket.Contains(implicetInput[i + 1]))
+                {
+
+                    //()32
+                    implicetInput.Insert(i+1, "*");                   
+                    implicetInput.Insert(i + 3, ")");
+                
+
+                  
+                    int open = 0;
+                    int close = 1;
+                    for (int j = i; j > -1; j--)
+                    {
+                        if (implicetInput[j] == "(")
+                        {
+                            open++;
+                        }
+                        if (implicetInput[j] == ")")
+                        {
+                            close++;
+                        }
+                        if (close == open+1 & j !=implicetInput.Count-1)
+                        {
+                            implicetInput.Insert(j, "(");
+                            break;
+                        }
+                    }
+                }
+
+                if(implicetInput[i] == ")" & implicetInput[i+1] == "(")
+                {
+                    implicetInput.Insert(i+1,"*");
+                }
             }
 
             return implicetInput;
         }
         private List<string> ParseBrackets(List<List<string>> bracketSplit)
         {
-          
+
             for (int i = 0; i < bracketSplit.Count; i++)
             {
-                for (int j = 0; j < bracketSplit[i].Count; j++)
+                if(bracketSplit[i][0] == "(" & bracketSplit[i].Last() == ")")
                 {
-                    if (bracketSplit[i][j][0] == '+' || bracketSplit[i][j][0] == '-')
-                    {
-                        bracketSplit[i].Insert(j, "+");
-                        j++;
-                    }
-
-                }
-                if (!bracketSplit[i].Contains("(") || !bracketSplit[i].Contains(")"))
-                {
-                    if (bracketSplit[i].Count <= 2)
-                    {
-                        continue;
-                    }
-                    int start = 0;
-                    int end = bracketSplit[i].Count-1;
-                    if (opperand.Contains(bracketSplit[i][end]))
-                    {
-                        end--;
-                    }
-                    string done = EvaluateInput(bracketSplit[i].GetRange(start, end));
-
-                }
-                if (bracketSplit[i][0] == "(")
-                {
-                    int start = 1;
-                    int end = bracketSplit[i].Count-1;
-                    if (bracketSplit[i][end] == ")" || opperand.Contains(bracketSplit[i][end]))
-                    {
-                        end--;
-                    }
-                    bracketSplit[i][start] = EvaluateInput(bracketSplit[i].GetRange(start, end));
-                    if (bracketSplit[i][0] == "(" && bracketSplit[i][bracketSplit[i].Count-1] == ")")
-                    {
-                        bracketSplit[i].RemoveAt(0);
-                        bracketSplit[i].RemoveAt(bracketSplit[i].Count-1);
-                    }
+                    string result = EvaluateInput(bracketSplit[i].GetRange(1, bracketSplit[i].Count-2));
+                    bracketSplit[i].Clear();
+                    bracketSplit[i].Add(result);
 
                 }
             }
-
-            List<string> combined = new List<string>();
-            foreach(List<string> index in bracketSplit)
+            List<string> L = new List<string> {};
+            foreach (List<string> index in bracketSplit)
             {
-                combined.AddRange(index);
+                L.AddRange(index);
             }
-
-            for(int i = 0; i < combined.Count; i++)
+            if (L.Contains("(") || L.Contains(")"))
             {
-                if (i !< combined.Count-2)  
-                {
-                    if (!(opperand.Contains(combined[i]) | bracket.Contains(combined[i])) && !(opperand.Contains(combined[i+1]) | bracket.Contains(combined[i+1])))
-                    {
-                        combined.Insert(i+1, "*");
-                        i++;
-                    }
-                    else if(!opperand.Contains(combined[i]) && combined[i+1] == "(")
-                    {
-                        combined.Insert(i+1, "*");
-                        i++;
-                    }
-
-                    else if (combined[i] == ")" && !opperand.Contains(combined[i+1]))
-                    {
-                        combined.Insert(i+1, "*");
-                        i++;
-                    }
-                }
-                
+                L = ParseBrackets(SplitBrackets(L));
             }
-            return combined;
 
+            return L;
 
         }
         private List<List<string>> SplitBrackets(List<string> splitInput)
