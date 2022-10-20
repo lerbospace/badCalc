@@ -10,8 +10,10 @@ namespace GUICalc
     {
 
         //Global checks
+        char[] ints = new char[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
         string[] opperand = new string[] { "+", "-", "*", "/", "^" };
         string[] bracket = new string[] { "(", ")" };
+        Dictionary<string, string> Variables = new Dictionary<string, string> { {"pi", "3.14159" } };
 
         public Calculator()
         {
@@ -20,9 +22,26 @@ namespace GUICalc
         public string Calculate(string ConsoleInput)
         {
             //PreParse
-            ConsoleInput = ConsoleInput.Replace('=', ' ');
-            List<string> splitInput = Regex.Split(ConsoleInput, @"\s*([-+/*^()])\s*").ToList();
+            Console.WriteLine("L vozo");
+            List<string> splitInput = Regex.Split(ConsoleInput, @"\s*([=])\s*").ToList();
+            if(splitInput.Count !=3 & splitInput.Count != 1)
+            {
+                return "Invalid equation";
+            }
+            if (splitInput.Count == 3)
+            {
+                return Equation(splitInput);
+
+                
+            }
+            if (splitInput.Count == 1)
+            {
+                splitInput = Regex.Split(ConsoleInput, @"\s*([-+/*^()])\s*").ToList();
+            }
+            
+            
             splitInput.RemoveAll(inputindex => string.IsNullOrWhiteSpace(inputindex));
+            splitInput = ReplaceVariables(splitInput);
 
             
             if (splitInput.Contains("(") | splitInput.Contains(")"))
@@ -31,7 +50,59 @@ namespace GUICalc
             }
 
             string result = EvaluateInput(splitInput);
+            Console.WriteLine("L vozo");
             return result;
+        }
+
+        private List<string> ReplaceVariables(List<string> input)
+        {
+            for (int i = 0; i < input.Count; i++)
+            {
+                if (Variables.ContainsKey(input[i]))
+                {
+                    input[i] = Variables[input[i]];
+                }
+                
+            }
+            return input;
+        }
+        private string Evaluate(string input)
+        {
+
+            List<string >splitInput = Regex.Split(input, @"\s*([-+/*^()])\s*").ToList();
+            splitInput = ReplaceVariables(splitInput);
+            splitInput.RemoveAll(inputindex => string.IsNullOrWhiteSpace(inputindex));
+
+
+            if (splitInput.Contains("(") | splitInput.Contains(")"))
+            {
+                splitInput = EvaluateBrackets(splitInput);
+            }
+
+            string result = EvaluateInput(splitInput);
+            return result;
+        }
+
+        private string Equation(List<string> equation)
+        {
+            equation.RemoveAt(1);
+            if (ints.Contains(equation[0][0]))
+            {
+                return "invalid variable name";
+            }
+            if(float.TryParse(Evaluate(equation[1]), out float result) == false)
+            {
+                return "invalid right side of equation";
+            }
+            if (Variables.ContainsKey(equation[0]))
+            {
+                Variables.Remove(equation[0]);
+            }
+            Variables.Add(equation[0], result.ToString());
+            return String.Concat(equation[0]+" = ", result);
+
+
+
         }
 
         private List<string> EvaluateBrackets(List<string> splitInput)
