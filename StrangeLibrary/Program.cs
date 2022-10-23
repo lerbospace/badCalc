@@ -16,6 +16,9 @@ public class program
         Fantasy fantasy;
         Cooking cooking;
 
+        
+        
+
         Dictionary<string,Book> books = new Dictionary<string,Book> { };
         string[] libraryArray = File.ReadAllLines(@"C:\Users\azzhu\Documents\programming\c#\StrangeLibrary\strangeLibrary.in");
         for (; ; )

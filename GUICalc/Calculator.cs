@@ -13,16 +13,20 @@ namespace GUICalc
         char[] ints = new char[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
         string[] opperand = new string[] { "+", "-", "*", "/", "^" };
         string[] bracket = new string[] { "(", ")" };
-        Dictionary<string, string> Variables = new Dictionary<string, string> { {"pi", "3.14159" } };
+        double x = 0;
+        List<string> ab = new List<string> { "r" };
+        Dictionary<string, string> Variables = new Dictionary<string, string> { {"pi", "3.14159" }, {"ans", "0" }, { "Ans","0"} };
+        Dictionary<string, Dictionary<string,string>> Functions = new Dictionary<string, Dictionary<string, string>> { };
+        
 
         public Calculator()
         {
-
+            
         }
         public string Calculate(string ConsoleInput)
         {
             //PreParse
-            Console.WriteLine("L vozo");
+            
             List<string> splitInput = Regex.Split(ConsoleInput, @"\s*([=])\s*").ToList();
             if(splitInput.Count !=3 & splitInput.Count != 1)
             {
@@ -30,6 +34,11 @@ namespace GUICalc
             }
             if (splitInput.Count == 3)
             {
+                if (splitInput[0].Contains("("))
+                {
+                    //return FunctionsParse(splitInput);
+                    return "invalid input";
+                }
                 return Equation(splitInput);
 
                 
@@ -41,7 +50,8 @@ namespace GUICalc
             
             
             splitInput.RemoveAll(inputindex => string.IsNullOrWhiteSpace(inputindex));
-            splitInput = ReplaceVariables(splitInput);
+            splitInput = ReplaceVariables(splitInput,ref Variables);
+            //splitInput = SimplifyFunctions(splitInput);
 
             
             if (splitInput.Contains("(") | splitInput.Contains(")"))
@@ -50,15 +60,29 @@ namespace GUICalc
             }
 
             string result = EvaluateInput(splitInput);
-            Console.WriteLine("L vozo");
+            Variables["ans"] = result;
+            Variables["Ans"] = result;
             return result;
         }
 
-        private List<string> ReplaceVariables(List<string> input)
+        private List<string> SimplifyFunctions(List<string> input)
         {
             for (int i = 0; i < input.Count; i++)
             {
-                if (Variables.ContainsKey(input[i]))
+                if (Functions.ContainsKey(input[i]))
+                {
+                   
+                }
+
+            }
+            return input;
+        }
+
+        private List<string> ReplaceVariables(List<string> input, ref Dictionary<string,string> variables)
+        {
+            for (int i = 0; i < input.Count; i++)
+            {
+                if (variables.ContainsKey(input[i]))
                 {
                     input[i] = Variables[input[i]];
                 }
@@ -70,7 +94,7 @@ namespace GUICalc
         {
 
             List<string >splitInput = Regex.Split(input, @"\s*([-+/*^()])\s*").ToList();
-            splitInput = ReplaceVariables(splitInput);
+            splitInput = ReplaceVariables(splitInput, ref Variables);
             splitInput.RemoveAll(inputindex => string.IsNullOrWhiteSpace(inputindex));
 
 
@@ -83,6 +107,26 @@ namespace GUICalc
             return result;
         }
 
+        private string FunctionsParse(List<string> function)
+        {
+            function.RemoveAt(1);
+           
+
+            List<string >splitInput = Regex.Split(function[0], @"\s*([()])\s*").ToList();
+            
+
+
+            Dictionary<string, string> LocalVar = new Dictionary<string, string>();
+            LocalVar.Add(splitInput[2], function[1]);
+
+
+            
+            Functions.Add(splitInput[0], LocalVar);
+
+            return String.Concat(function[0] + " = ", function[1]);
+            
+        }
+
         private string Equation(List<string> equation)
         {
             equation.RemoveAt(1);
@@ -90,13 +134,23 @@ namespace GUICalc
             {
                 return "invalid variable name";
             }
+            foreach(string str in opperand)
+            {
+                foreach(string eq in equation)
+                {
+                    if (eq.Contains(str))
+                    {
+                        return "bad";
+                    }
+                }
+            }
             if(float.TryParse(Evaluate(equation[1]), out float result) == false)
             {
                 return "invalid right side of equation";
             }
             if (Variables.ContainsKey(equation[0]))
             {
-                Variables.Remove(equation[0]);
+                Variables[equation[0]] = equation[1];
             }
             Variables.Add(equation[0], result.ToString());
             return String.Concat(equation[0]+" = ", result);
@@ -110,7 +164,7 @@ namespace GUICalc
             //Pre procces
             splitInput = SimplifyPM(splitInput);
             splitInput = SimplifyConsecutiveSign(splitInput);
-            splitInput = SimplifyImplicetMult(splitInput);
+            
             List<List<string>> splitBracket = SplitBrackets(splitInput);
             splitInput = ParseBrackets(splitBracket);
             return splitInput;
@@ -182,6 +236,16 @@ namespace GUICalc
                 {
                     implicetInput.Insert(i+1,"*");
                 }
+
+                if(ints.Contains(implicetInput[i].Last()) & ints.Contains(implicetInput[i+1][0]))
+                {      
+                    //1,2
+                    implicetInput.Insert(i + 1, "*");
+                    //1*2
+                    implicetInput.Insert(i, "(");
+                    //(1*2
+                    implicetInput.Insert(i + 4, ")");
+                }
             }
 
             return implicetInput;
@@ -246,6 +310,9 @@ namespace GUICalc
                 input = SimplifyPM(input);
                 input = SimplifyConsecutiveSign(input);
                 input = ExpOrder(input);
+                input = SimplifyImplicetMult(input);
+                List<List<string>> splitBracket = SplitBrackets(input);
+                input = ParseBrackets(splitBracket);
                 input = MDOrder(input);
                 input = PMOrder(input);
 

@@ -69,12 +69,13 @@ namespace GUICalc
                 string result = calculator.Calculate(input.Text);
 
 
-                output.AppendText(result+"\r\n");
+                output.AppendText("\r\n"+result);
                 input.Text = "";
 
             }
-            output.SelectionStart = output.Text.Length;
-            output.ScrollToCaret();
+            
+           
+            //output.ScrollToCaret();
         }
 
     }
