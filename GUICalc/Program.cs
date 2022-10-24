@@ -68,8 +68,13 @@ namespace GUICalc
             {
                 string result = calculator.Calculate(input.Text);
 
-
-                output.AppendText("\r\n"+result);
+                if (input.Text.Contains("="))
+                {
+                    output.AppendText("\r\n" + result);
+                    input.Text = "";
+                    return;
+                }
+                output.AppendText("\r\n"+input.Text+" = "+result);
                 input.Text = "";
 
             }
