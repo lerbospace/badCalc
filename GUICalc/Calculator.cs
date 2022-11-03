@@ -9,11 +9,10 @@ namespace GUICalc
     internal class Calculator
     {
 
-        //Global checks
         char[] ints = new char[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
         string[] opperand = new string[] { "+", "-", "*", "/", "^" };
         string[] bracket = new string[] { "(", ")" };
-        //double x = 0;
+        
         List<string> ab = new List<string> { "r" };
         Dictionary<string, string> Variables = new Dictionary<string, string> { {"pi", "3.14159" }, {"ans", "0" }, { "Ans","0"} };
         Dictionary<string, Dictionary<string,string>> Functions = new Dictionary<string, Dictionary<string, string>> { };
@@ -21,14 +20,18 @@ namespace GUICalc
 
         public Calculator()
         {
-            
+            Dictionary<string, string> test = new Dictionary<string, string> { { "x", "x^0.5" } };
+            Functions.Add("sqrt", test);
         }
         public string Calculate(string ConsoleInput)
         {
             //PreParse
-            
+            ConsoleInput = ConsoleInput.Replace('÷', '/');
+            ConsoleInput = ConsoleInput.Replace('×', '*');
             List<string> splitInput = Regex.Split(ConsoleInput, @"\s*([=])\s*").ToList();
-            if(splitInput.Count !=3 & splitInput.Count != 1)
+            //splitInput.RemoveAll(inputindex => inputindex=="=");
+            //splitInput.RemoveAll(inputindex => string.IsNullOrWhiteSpace(inputindex));
+            if (splitInput.Count !=3 & splitInput.Count != 1)
             {
                 return "Invalid equation";
             }
@@ -47,19 +50,35 @@ namespace GUICalc
             {
                 splitInput = Regex.Split(ConsoleInput, @"\s*([-+/*^()])\s*").ToList();
             }
+
+            
             
             
             splitInput.RemoveAll(inputindex => string.IsNullOrWhiteSpace(inputindex));
+            if(splitInput.Count == 0)
+            {
+                return "";
+            }
             splitInput = ReplaceVariables(splitInput,ref Variables);
             //splitInput = SimplifyFunctions(splitInput);
 
-            
+            string result;
             if (splitInput.Contains("(") | splitInput.Contains(")"))
             {
                 splitInput = EvaluateInputComplex(splitInput);
             }
-
-            string result = EvaluateInputSimple(splitInput);
+            try
+            {
+                result = EvaluateInputSimple(splitInput)[0];
+            }
+            catch(Exception ex)
+            {
+                return "";
+            }
+            if (result == null)
+            {
+                result = "";
+            }
             Variables["ans"] = result;
             Variables["Ans"] = result;
             return result;
@@ -71,9 +90,9 @@ namespace GUICalc
             {
                 if (input[i] == "^")
                 {
-                    if (input[i - 3] == "(" & input[i - 1] == ")")
+                    if (i>3 &&input[i - 3] == "(" & input[i - 1] == ")")
                     {
-                        input[i] = Math.Pow(float.Parse(input[i - 2]), float.Parse(input[i + 1])).ToString("F");
+                        input[i] = Math.Pow(float.Parse(input[i - 2]), float.Parse(input[i + 1])).ToString("F10");
                         input.RemoveAt(i - 3);
                         input.RemoveAt(i - 3);
                         input.RemoveAt(i - 3);
@@ -88,7 +107,7 @@ namespace GUICalc
                     }
                     else
                     {
-                        input[i] = Math.Pow(float.Parse(input[i - 1]), float.Parse(input[i + 1])).ToString("F");
+                        input[i] = Math.Pow(float.Parse(input[i - 1]), float.Parse(input[i + 1])).ToString("F10");
                         input.RemoveAt(i - 1);
                         input.RemoveAt(i);
                         if (input.Count != 1)
@@ -137,7 +156,7 @@ namespace GUICalc
 
         }
 
-        private string EvaluateInputSimple(List<string> input)
+        private List<string> EvaluateInputSimple(List<string> input)
         {
             try
             {
@@ -151,16 +170,17 @@ namespace GUICalc
                 if (input.Count != 0)
                 {
                     float.Parse(input[0]);
-                    return input[0];
+                    return input;
                 }
             }
 
-            finally
+            catch(Exception e)
             {
-                Console.WriteLine("Error in input");
+                input[0] = "invalid input";
+                return input;
 
             }
-            return input[0];
+            return input;
 
         }
         private string EvaluateEquationRightSide(string input)
@@ -176,7 +196,7 @@ namespace GUICalc
                 splitInput = EvaluateInputComplex(splitInput);
             }
 
-            string result = EvaluateInputSimple(splitInput);
+            string result = EvaluateInputSimple(splitInput)[0];
             return result;
         }
 
@@ -248,7 +268,7 @@ namespace GUICalc
                 Variables[equation[0]] = equation[1];
                 return String.Concat(equation[0] + " = ", result);
             }
-            Variables.Add(equation[0], result.ToString("F"));
+            Variables.Add(equation[0], result.ToString("F10"));
             return String.Concat(equation[0]+" = ", result);
 
 
@@ -349,12 +369,27 @@ namespace GUICalc
         }
         private List<string> ParseBrackets(List<List<string>> bracketSplit)
         {
-
+            if(bracketSplit.Count == 0)
+            {
+                bracketSplit.Add(new List<string> { }); 
+                return bracketSplit[0];
+            }
+            if(bracketSplit[0].Count == 0)
+            {
+                return bracketSplit[0];
+            }
             for (int i = 0; i < bracketSplit.Count; i++)
             {
+                if(bracketSplit[i][0] == "(" & bracketSplit[i][1]== ")")
+                {
+                    bracketSplit.Clear();
+                    bracketSplit.Add(new List<string> { });
+                    return bracketSplit[0];
+                    
+                }
                 if(bracketSplit[i][0] == "(" & bracketSplit[i].Last() == ")")
                 {
-                    string result = EvaluateInputSimple(bracketSplit[i].GetRange(1, bracketSplit[i].Count-2));
+                    string result = EvaluateInputSimple(bracketSplit[i].GetRange(1, bracketSplit[i].Count-2))[0];
                     bracketSplit[i].Clear();
                     bracketSplit[i].Add(result);
 
@@ -373,6 +408,10 @@ namespace GUICalc
         {
             List<List<string>> bracketSplit = new List<List<string>>();
             bracketSplit.Add(new List<string>());
+            if(splitInput.Count == 0)
+            {
+                return bracketSplit;
+            }
             bracketSplit[0].Add(splitInput[0]);
             for (int i = 1, j = 0; i < splitInput.Count; i++)
             {
@@ -403,7 +442,7 @@ namespace GUICalc
             {
                 if (input[i] == "^")
                 {
-                    input[i] = Math.Pow(float.Parse(input[i - 1]), float.Parse(input[i + 1])).ToString("F");
+                    input[i] = Math.Pow(float.Parse(input[i - 1]), float.Parse(input[i + 1])).ToString("F10");
                     input.RemoveAt(i - 1);
                     input.RemoveAt(i);
                     if (input.Count != 1)
@@ -422,7 +461,7 @@ namespace GUICalc
                 switch (input[i])
                 {
                     case "*":
-                        input[i] = (float.Parse(input[i - 1]) * float.Parse(input[i + 1])).ToString("F");
+                        input[i] = (float.Parse(input[i - 1]) * float.Parse(input[i + 1])).ToString("F10");
                         input.RemoveAt(i - 1);
                         input.RemoveAt(i);
                         if (input.Count != 1)
@@ -431,7 +470,7 @@ namespace GUICalc
                         }
                         break;
                     case "/":
-                        input[i] = (float.Parse(input[i - 1]) / float.Parse(input[i + 1])).ToString("F");
+                        input[i] = (float.Parse(input[i - 1]) / float.Parse(input[i + 1])).ToString("F10");
                         input.RemoveAt(i - 1);
                         input.RemoveAt(i);
                         if (input.Count != 1)
@@ -453,7 +492,7 @@ namespace GUICalc
                 switch (input[i])
                 {
                     case "+":
-                        input[i] = (float.Parse(input[i - 1]) + float.Parse(input[i + 1])).ToString("F");
+                        input[i] = (float.Parse(input[i - 1]) + float.Parse(input[i + 1])).ToString("F10");
                         input.RemoveAt(i - 1);
                         input.RemoveAt(i);
                         if (input.Count != 1)
@@ -462,7 +501,7 @@ namespace GUICalc
                         }
                         break;
                     case "-":
-                        input[i] = (float.Parse(input[i - 1]) - float.Parse(input[i + 1])).ToString("F");
+                        input[i] = (float.Parse(input[i - 1]) - float.Parse(input[i + 1])).ToString("F10");
                         input.RemoveAt(i - 1);
                         input.RemoveAt(i);
                         if (input.Count != 1)
@@ -485,15 +524,15 @@ namespace GUICalc
 
                 if (check.Contains(input[i - 1]) && input[i] == "-")
                 {
-                    int.TryParse(input[i + 1], out int n);
-                    input[i + 1] = (n * -1).ToString("F");
+                    double.TryParse(input[i + 1], out double n);
+                    input[i + 1] = (n * -1).ToString("F10");
                     input.RemoveAt(i);
                 }
 
                 if (check.Contains(input[i - 1]) && input[i] == "+")
                 {
-                    int.TryParse(input[i + 1], out int n);
-                    input[i + 1] = (n * 1).ToString("F");
+                    double.TryParse(input[i + 1], out double n);
+                    input[i + 1] = (n * 1).ToString("F10");
                     input.RemoveAt(i);
                 }
             }
@@ -541,14 +580,14 @@ namespace GUICalc
                 if (input[0] == "-")
                 {
                     double.TryParse(input[1], out double n);
-                    input[1] = (n * -1).ToString("F");
+                    input[1] = (n * -1).ToString("F10");
                     input.RemoveAt(0);
 
                 }
                 if (input[0] == "+")
                 {
                     double.TryParse(input[1], out double n);
-                    input[1] = (n * 1).ToString("F");
+                    input[1] = (n * 1).ToString("F10");
                     input.RemoveAt(0);
                     
                 }

@@ -16,3 +16,14 @@ C:\Users\azzhu\Documents\programming\c#\RacingGame\obj\Debug\net6.0-windows\ref\
 C:\Users\azzhu\Documents\programming\c#\RacingGame\obj\Debug\net6.0-windows\RacingGame.pdb
 C:\Users\azzhu\Documents\programming\c#\RacingGame\obj\Debug\net6.0-windows\RacingGame.genruntimeconfig.cache
 C:\Users\azzhu\Documents\programming\c#\RacingGame\obj\Debug\net6.0-windows\RacingGame.Car.resources
+C:\Users\azzhu\Documents\programming\c#\school\RacingGame\obj\Debug\net6.0-windows\RacingGame.csproj.AssemblyReference.cache
+C:\Users\azzhu\Documents\programming\c#\school\RacingGame\obj\Debug\net6.0-windows\RacingGame.Car.resources
+C:\Users\azzhu\Documents\programming\c#\school\RacingGame\obj\Debug\net6.0-windows\RacingGame.Form1.resources
+C:\Users\azzhu\Documents\programming\c#\school\RacingGame\obj\Debug\net6.0-windows\RacingGame.csproj.GenerateResource.cache
+C:\Users\azzhu\Documents\programming\c#\school\RacingGame\obj\Debug\net6.0-windows\RacingGame.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\azzhu\Documents\programming\c#\school\RacingGame\obj\Debug\net6.0-windows\RacingGame.AssemblyInfoInputs.cache
+C:\Users\azzhu\Documents\programming\c#\school\RacingGame\obj\Debug\net6.0-windows\RacingGame.AssemblyInfo.cs
+C:\Users\azzhu\Documents\programming\c#\school\RacingGame\obj\Debug\net6.0-windows\RacingGame.csproj.CoreCompileInputs.cache
+C:\Users\azzhu\Documents\programming\c#\school\RacingGame\obj\Debug\net6.0-windows\RacingGame.dll
+C:\Users\azzhu\Documents\programming\c#\school\RacingGame\obj\Debug\net6.0-windows\ref\RacingGame.dll
+C:\Users\azzhu\Documents\programming\c#\school\RacingGame\obj\Debug\net6.0-windows\RacingGame.pdb

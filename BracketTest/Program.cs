@@ -1,7 +1,7 @@
 ﻿using System.Text.RegularExpressions;
 double test = 210984306752864937;
 
-string n = test.ToString("F");
+string n = test.ToString("F10");
 Console.WriteLine(n);
 
 
